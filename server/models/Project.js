@@ -8,11 +8,11 @@ const userSchema = new Schema({
         enum: ["Elaboración del diseño", "Busqueda de Recursos", "Fases Iniciales del proyecto"]
     },
     colectivo: {
-        type: String
+        type: String,
+        enum: ["Violencia de Genero", "Diversidad Funcional",
+            "En Riesgo de Exclusión Social", "Mayores", "Menores", "Población Inmigrante", "Otros"
+        ]
     },
-    enum: ["Violencia de Genero", "Diversidad Funcional",
-        "En Riesgo de Exclusión Social", "Mayores", "Menores", "Población Inmigrante", "Otros"
-    ],
     descripcion_del_proyecto: String,
     profesionales_necesarios: [{
         type: String
@@ -22,11 +22,11 @@ const userSchema = new Schema({
     },
     id_administrador: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: User
+        ref: 'User'
     }],
     id_colaboradores: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: User
+        ref: 'User'
     }],
     image: String
 }, {
@@ -36,5 +36,5 @@ const userSchema = new Schema({
     }
 });
 
-const User = mongoose.model('Project', userSchema);
+const Project = mongoose.model('Project', userSchema);
 module.exports = Project;

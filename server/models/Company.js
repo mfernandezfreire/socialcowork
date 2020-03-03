@@ -2,17 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    email: String,
+    username: String,
+    password: String,
     nombre: String,
     busca: {
-        type: String
+        type: String,
+        enum: ["Ideas", "Candidatos"]
     },
-    enum: ["Ideas", "Candidatos"],
     perfil_de_linkedin: String,
     persona_de_contacto: {
         type: String
     },
     telefono: Number,
+    email: String,
     image: String,
 
 }, {
@@ -22,5 +24,5 @@ const userSchema = new Schema({
     }
 });
 
-const User = mongoose.model('Project', userSchema);
+const Company = mongoose.model('Company', userSchema);
 module.exports = Company;

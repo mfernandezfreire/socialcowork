@@ -4,14 +4,21 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
+  rol: {
+    type: String,
+    enum: ["Profesional", "Empresa"]
+  },
   nombre: String,
   apellidos: String,
   email: String,
   telefono: Number,
   perfil_de_linkedin: String,
+  persona_de_contacto: {
+    type: String
+  },
   profesion: {
     type: String,
-    enum: ["Abogado", "Antropólogo", "Educador Social", "Integrador Social", "Logopeda", "Maestro", "Monitor de Tiempo Libre", "Terapeuta Ocupacional", "Trabajador Social", ]
+    enum: ["Abogado/a", "Antropólogo/a", "Educador/a Social", "Integrador/a Social", "Logopeda", "Maestra", "Monitor/a de Tiempo Libre", "Psicologo/a", "Sociologo/a", "Terapeuta Ocupacional", "Trabajador/a Social", ]
   },
   cv_resumido: String,
   image: String

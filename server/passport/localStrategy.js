@@ -14,7 +14,6 @@ passport.use(new LocalStrategy({
         done(null, false, { message: 'Incorrect username' });
         return;
       }
-
       if (!bcrypt.compareSync(password, foundUser.password)) {
         done(null, false, { message: 'Incorrect password' });
         return;
@@ -22,6 +21,8 @@ passport.use(new LocalStrategy({
 
       done(null, foundUser);
     })
+
     .catch(err => done(err));
   }
+  
 ));
