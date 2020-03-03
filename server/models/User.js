@@ -1,12 +1,20 @@
 const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   username: String,
   password: String,
-  campus: { type: String, enum: ["Madrid", "Barcelona", "Miami", "Paris", "Berlin", "Amsterdam", "México", "Sao Paulo", "Lisbon",] },
-  course: { type: String, enum: ["WebDev", "UX/UI", "Data Analytics"]},
-  // image: String,
+  nombre: String,
+  apellidos: String,
+  email: String,
+  telefono: Number,
+  perfil_de_linkedin: String,
+  profesion: {
+    type: String,
+    enum: ["Abogado", "Antropólogo", "Educador Social", "Integrador Social", "Logopeda", "Maestro", "Monitor de Tiempo Libre", "Terapeuta Ocupacional", "Trabajador Social", ]
+  },
+  cv_resumido: String,
+  image: String
 }, {
   timestamps: {
     createdAt: 'created_at',
