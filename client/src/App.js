@@ -71,9 +71,9 @@ class App extends Component {
       return (
         <React.Fragment>
           <Redirect to="/login" />
+
           <div className="App">
             <header className="App-header">
-              <h1>Hola esta es la pagina de login de SOCIALCOWORK</h1>
               <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
               <Switch>
                 <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />} />
@@ -88,4 +88,3 @@ class App extends Component {
 }
 
 export default App;
-

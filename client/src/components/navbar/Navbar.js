@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../auth/AuthService";
+// import logo from "../../logo-ironhack-blue.png";
 import "./Navbar.css"
 
 class Navbar extends Component {
@@ -30,7 +31,8 @@ class Navbar extends Component {
             </li>
           </ul>
           <div className="header">
-            <h2>Welcome {this.state.loggedInUser.username} - Ironhacker</h2>
+            {/* <img src={logo} alt="" height="100"/> */}
+            <h2>Welcome {this.state.loggedInUser.username}</h2>
           </div>
         </nav>
       );
