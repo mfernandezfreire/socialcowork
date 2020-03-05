@@ -131,7 +131,7 @@ const project = [
     profesionales_necesarios: ["Trabajador/a Social", "Integrador/a Social", "Educador/a Social"],
     lugar_de_ejecucion: "Madrid - Distrito de Centro",
     id_administrador: num6,
-    id_colaboradores: [num7, num8],
+    id_colaboradores: [num7, num8, num3],
     id_empresas: [num9],
     image: null
   },

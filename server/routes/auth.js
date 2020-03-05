@@ -25,7 +25,6 @@ const login = (req, user) => {
   })
 }
 
-
 // SIGNUP
 router.post('/signup', (req, res, next) => {
 
