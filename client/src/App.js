@@ -71,7 +71,6 @@ class App extends Component {
       return (
         <React.Fragment>
           <Redirect to="/login" />
-
           <div className="App">
             <header className="App-header">
               <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />

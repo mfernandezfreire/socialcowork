@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../auth/AuthService";
 // import logo from "../../logo-ironhack-blue.png";
-import "./Navbar.css"
+import "./Navbar.css";
 
 class Navbar extends Component {
   constructor(props) {
@@ -27,6 +27,9 @@ class Navbar extends Component {
         <nav className="nav-style">
           <ul>
             <li>
+              <h2>Welcome {this.state.loggedInUser.username}</h2>
+            </li>
+            <li>
               <a onClick={this.handleLogout}>Logout</a>
             </li>
           </ul>
@@ -42,9 +45,9 @@ class Navbar extends Component {
         <div>
           <nav className="nav-style">
             <ul>
-              <li>
+              {/* <li>
                 <Link to="/signup">Signup</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/login">Login</Link>
               </li>
