@@ -1,12 +1,12 @@
 const express = require('express');
 require('dotenv')
-const User = require('../models/User');
-const Photo = require('../models/photo')
+const User = require('../../models/User');
+const Photo = require('../../models/photo')
 const router  = express.Router();
 
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const uploadCloud = require('../config/cloudinary.js');
+const uploadCloud = require('../../config/cloudinary.js');
 
 
 const login = (req, user) => {

@@ -11,6 +11,9 @@ class Signup extends Component {
     this.service = new AuthService();
   }
 
+
+  
+
   handleFormSubmit = event => {
     debugger
     event.preventDefault();
@@ -53,7 +56,7 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <h3>¿¿Crea un proyecto o colabora, este es el comienzo!!</h3>
+        <h3>Welcome!, create your account next:</h3>
 
         <form onSubmit={this.handleFormSubmit}>
           <fieldset>

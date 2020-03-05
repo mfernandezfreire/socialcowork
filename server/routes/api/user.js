@@ -1,7 +1,7 @@
 require('dotenv')
 const express = require('express');
-const User = require('../models/User');
-const Project = require('../models/Project')
+const User = require('../../models/User');
+const Project = require('../../models/Project')
 const router = express.Router();
 
 const bcrypt = require('bcrypt');
@@ -10,7 +10,14 @@ const passport = require('passport');
 
 
 router.get('/allprojects', (req, res, next) => {
-    Project.find()
+    Project.find().populate({
+        path: 'id_administrador',
+        model: 'User'
+    })
+    .populate({
+        path: 'id_colaboradores',
+        model: 'User'
+    })
         .then(projects => res.json(projects))
 })
 
@@ -132,34 +139,28 @@ router.put('/deletecolaborator/:id', (req, res, next) => {
     const {
         id_colaboradores
     } = req.body
-    Project.findByIdAndUpdate(req.params.id,{ $pull: {id_colaboradores: id_colaboradores}}, {new:true} )
+    Project.findByIdAndUpdate(req.params.id,{ $pull: {id_colaboradores:  id_colaborador}}, {new:true} )
           .then(user => res.json({status: 'User modified', user: user}))
           .catch(err => next(new Error(err)))   
         })
 
-// router.put('/addcolaborator/:id', (req, res, next) => {
-//     const {
-                   
-//         } = req.body
-//         const data = {
-                    
-//         }
-//         Project.findByIdAndUpdate(req.params.id,{id_colaboradores: }, {new:true} )
-//         .then(user => res.json({status: 'Project modified', user: user}))
-//         .catch(err => next(new Error(err)))   
-//     })
+router.put('/addcolaborator/:id', (req, res, next) => {
+    const {
+        _id_colaborador      
+        } = req.body
+        Project.findByIdAndUpdate(req.params.id,{ $push: {id_colaboradores: '5e5ff4e6eebcb479c1d8f6f3'}}, {new:true} )
+        .then(user => res.json({status: 'Project modified', user: user}))
+        .catch(err => next(new Error(err)))   
+    })
 
-// router.put('/addproject/:id', (req, res, next) => {
-//     const {
-            
-//         } = req.body
-//         const data = {
-
-//             }
-//             Project.findByIdAndUpdate(req.params.id,{id_colaboradores: }, {new:true} )
-//             .then(user => res.json({status: 'Project modified', user: user}))
-//             .catch(err => next(new Error(err)))   
-//         })
+router.put('/addproject/:id', (req, res, next) => {
+    const {
+        _id
+        } = req.body
+            Project.findByIdAndUpdate(req.params.id,{id_colaboradores:  _id}, {new:true} )
+            .then(user => res.json({status: 'Project modified', user: user}))
+            .catch(err => next(new Error(err)))   
+        })
 
 
 module.exports = router;

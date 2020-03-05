@@ -68,11 +68,18 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-const authRouter = require('./routes/auth');
-app.use('/api/auth', authRouter);
+// const index = require('./routes/index');
+// app.use('/', index);
 
-const user = require('./routes/user');
-app.use('/api/user', user);
+const authRoutes = require('./routes/api/auth');
+app.use('/api/auth', authRoutes)
 
+const user = require('./routes/api/user');
+app.use('/api/user', user)
+
+
+app.use((req,res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 module.exports = app;
