@@ -33,6 +33,7 @@ class Navbar extends Component {
           <div className="header">
             {/* <img src={logo} alt="" height="100"/> */}
             <h2>Welcome {this.state.loggedInUser.username}</h2>
+            <h2>Welcome {this.state.loggedInUser._id}</h2>
           </div>
         </nav>
       );
