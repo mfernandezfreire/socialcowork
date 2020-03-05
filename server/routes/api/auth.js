@@ -28,7 +28,7 @@ const login = (req, user) => {
 // SIGNUP
 router.post('/signup', (req, res, next) => {
 
-  const {username, password, campus, course} = req.body;
+  const {username, password, rol, nombre, apellidos, email, telefono, perfil_de_linkedin, profesion, cv_resumido, image} = req.body;
 
   console.log(req.body)
   // console.log('username', username)
@@ -50,8 +50,17 @@ router.post('/signup', (req, res, next) => {
     return new User({
       username,
       password: hashPass,
-      campus,
-      course
+      rol,
+      username,
+      password,
+      nombre,
+      apellidos,
+      email,
+      telefono,
+      perfil_de_linkedin,
+      profesion, 
+      cv_resumido,
+      image
     }).save();
   })
   .then( savedUser => login(req, savedUser)) // Login the user using passport

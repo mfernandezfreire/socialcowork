@@ -9,8 +9,8 @@ class AuthService {
     });
   }
 
-  signup = (username, password, campus, course) => {
-    return this.service.post('/signup', {username, password, campus, course})
+  signup = (username, password, rol, nombre, apellidos, email, telefono, perfil_de_linkedin, profesion) => {
+    return this.service.post('/signup', {username, password, rol, nombre, apellidos, email, telefono, perfil_de_linkedin, profesion})
     .then(response => response.data)
   }
 

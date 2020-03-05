@@ -7,27 +7,38 @@ import AuthService from "./AuthService";
 class Signup extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "", campus: "", course: "" };
+    this.state = { username: "", password: "",rol: "", nombre:"", apellidos:"", telefono:"", email: "", perfil_de_linkedin: "", profesion: ""};
     this.service = new AuthService();
   }
+
 
   handleFormSubmit = event => {
     debugger
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
-    const campus = this.state.campus;
-    const course = this.state.course;
-
+    const rol = "Profesional";
+    const nombre = this.state.nombre;
+    const apellidos = this.state.apellidos;
+    const email = this.state.email;
+    const telefono = this.state.telefono;
+    const perfil_de_linkedin = this.state.perfil_de_linkedin
+    const profesion = this.state.profesion
     //aquí llamamos al endpoint /signup de nuestra API Rest usando nuestro AuthService
     this.service
-      .signup(username, password, campus, course)
+      .signup(username, password, rol, nombre, apellidos, email, telefono, perfil_de_linkedin, profesion)
       .then(response => {
         this.setState({
           username: "",
           password: "",
-          campus: "",
-          course: ""
+          rol: "",
+          nombre: "",
+          apellidos: "",
+          email: "",
+          telefono: "",
+          perfil_de_linkedin: "",
+          profesion: ""
+
         });
         //aquí elevamos el nuevo usuario una vez creado a App usando getUser via props
         //por tanto, informamos a App de que el nuevo usuario ha sido creado, provocando un re-render
@@ -38,8 +49,13 @@ class Signup extends Component {
         this.setState({
           username: username,
           password: password,
-          campus: campus,
-          course: course,
+          nombre: nombre,
+          rol: "Profesional",
+          apellidos: apellidos,
+          email: email,
+          telefono: telefono,
+          perfil_de_linkedin: perfil_de_linkedin,
+          profesion: "",
           error: true
         });
       });
@@ -77,33 +93,70 @@ class Signup extends Component {
           </fieldset>
 
           <fieldset>
-            <label>Campus</label>
-            <select
-              name="campus"
-              value={this.state.campus}
+            <label>Nombre</label>
+            <input
+              type="nombre"
+              name="nombre"
+              value={this.state.nombre}
               onChange={e => this.handleChange(e)}
-            >
-              <option value="Madrid" selected>Madrid</option>
-              <option value="Barcelona">Barcelona</option>
-              <option value="Paris">Paris</option>
-              <option value="Berlin">Berlin</option>
-              <option value="Amsterdam">Amsterdam</option>
-              <option value="Mexico">Mexico</option>
-              <option value="Sao Paulo">Sao Paulo</option>
-              <option value="Lisbon">Lisbon</option>
-            </select>
+            />
           </fieldset>
 
           <fieldset>
-            <label>Course</label>
+            <label>Apellidos</label>
+            <input
+              type="apellidos"
+              name="apellidos"
+              value={this.state.apellidos}
+              onChange={e => this.handleChange(e)}
+            />
+          </fieldset>
+
+          <fieldset>
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={this.state.email}
+              onChange={e => this.handleChange(e)}
+            />
+          </fieldset>
+
+          <fieldset>
+            <label>Telefono</label>
+            <input
+              type="telefono"
+              name="telefono"
+              value={this.state.telefono}
+              onChange={e => this.handleChange(e)}
+            />
+          </fieldset>
+
+          <fieldset>
+            <label>Perfil de linkedin</label>
+            <input
+              type="perfil_de_linkedin"
+              name="perfil_de_linkedin"
+              value={this.state.perfil_de_linkedin}
+              onChange={e => this.handleChange(e)}
+            />
+          </fieldset>
+          <fieldset>
+            <label>Profesion</label>
             <select
-              name="course"
-              value={this.state.course}
+              name="profesion"
+              value={this.state.profesion}
               onChange={e => this.handleChange(e)}
             >
-              <option value="WebDev" selected>WebDev</option>
-              <option value="UX/UI">UX/UI</option>
-              <option value="Data Analytics">Data Analytics</option>
+              <option value="Abogado" selected>Abogado</option>
+              <option value="Antropólogo/a">Antropólogo/a</option>
+              <option value="Educador/a Social">Educador/a Social</option>
+              <option value="Integrador/a Social">Integrador/a Social</option>
+              <option value="Logopeda">Logopeda</option>
+              <option value="Maestro/a">Maestro/a</option>
+              <option value="Monitor/a de Tiempo Libre">Monitor/a de Tiempo Libre</option>
+              <option value="Terapeuta Ocupacional">Terapeuta Ocupacional</option>
+              <option value="Trabajador/a Social">Trabajador/a Social</option>
             </select>
           </fieldset>
           <input type="submit" value="Sign up" />
