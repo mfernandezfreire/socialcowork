@@ -21,10 +21,15 @@ router.get('/allprojects', (req, res, next) => {
         .then(projects => res.json(projects))
 })
 
+
 router.get('/projectsadmin/:id', (req, res, next) => {
     Project.find({
             id_administrador: req.params.id
         })
+        .populate({
+        path: 'id_colaboradores',
+        model: 'User'
+    })
         .then(projects => res.json(projects))
 })
 
