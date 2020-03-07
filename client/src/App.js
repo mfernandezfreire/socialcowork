@@ -1,18 +1,25 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { Link } from "react-router-dom";
 
-// import ProjectList from './components/projects/ProjectList';
-import Navbar from "./components/navbar/Navbar";
-// import ProjectDetails from './components/projects/ProjectDetails';
+
+//import ProjectDetails from './components/projects/ProjectDetails';
 import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
 import AuthService from "./components/auth/AuthService";
-import Contents from "./components/contents/Contents";
 
-//importo signup para empresas
+//Navbar
+import Navbar from "./components/navbar/Navbar";
+
+//Area para todos los usuarios
 import Signupcompany from "./components/auth/Signupcompany"
+import Choose from "./components/choosesingup/Choose"
+
+//Area privada
+import Home from "./components/home/Home";
+import Createproject from "./components/createproject/Createproject";
+import Addcolaborator from "./components/addcolaborator/Addcolaborator"
+import Projectcolaborator from "./components/projectcolaborator/Projectcolaborator"
 
 //App es la aplicación base, que se sirve del servicio AuthService para conectar con la bbdd
 class App extends Component {
@@ -27,9 +34,7 @@ class App extends Component {
   }
 
   getUser = userObj => {
-    this.setState({
-      loggedInUser: userObj,
-    });
+    this.fetchUser()
   };
 
   logout = () => {
@@ -59,36 +64,32 @@ class App extends Component {
     if (this.state.loggedInUser) {
       //en este caso mostramos los contenidos ya que hay usuario
       return (
-        <React.Fragment>
+        <div className="App">
           <Redirect to="/home" />
-          <div className="App">
-            <header className="App-header">
-              <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-              {/* aqui simplemente se muestra un lorem ipsum genérico para que veáis contenidos que solo se muestran a usuarios logeados */}
-              <Contents />
-            </header>
-          </div>
-        </React.Fragment>
+          <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
+          <Switch>
+            <Route exact path="/home" render={() => <Home userInSession={this.state.loggedInUser} getUser={this.getUser} />} />
+            <Route exact path="/createproject/:id" render={() => <Createproject userInSession={this.state.loggedInUser} getUser={this.getUser} />} />
+            <Route exact path="/allprojects" render={() => <Addcolaborator userInSession={this.state.loggedInUser} getUser={this.getUser} />} />
+            <Route exact path="/projectcolaborator/:id" render={(props) => <Projectcolaborator userInSession={this.state.loggedInUser} getUser={this.getUser} {...props}/>} />
+          </Switch>
+        </div>
       );
     } else {
       //si no estás logeado, mostrar opcionalmente o login o signup
       return (
-        <React.Fragment>
-          <Redirect to="/login" />
-          <div className="App">
-            <header className="App-header">
-              <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-              <Switch>
-                <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />} />
-                <Route exact path="/signupCompany" render={() => <Signupcompany getUser={this.getUser} />} />
-              </Switch>
-              <h1>HOLA</h1>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aut voluptatum aliquid ea ipsam quasi? Reprehenderit distinctio praesentium quos cupiditate a! Dolores tempore, earum minus id commodi voluptate magni atque.</p>
-              <Link to="/signup">Profesional</Link>
-              <Link to="/signupCompany">Empresa</Link>
-            </header>
-          </div>
-        </React.Fragment>
+        <div className="App">
+          <Redirect to="/Choose" />
+          <header>
+            <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
+          </header>
+          <Switch>
+            <Route exact path="/choose" render={() => <Choose getUser={this.getUser} />} />
+            <Route exact path="/login" render={() => <Login getUser={this.getUser} />} />
+            <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />} />
+            <Route exact path="/signupCompany" render={() => <Signupcompany getUser={this.getUser} />} />
+          </Switch>
+        </div>
       );
     }
   }

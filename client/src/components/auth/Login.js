@@ -21,9 +21,11 @@ class Login extends Component {
           username: username,
           password: password,
           error: false
+        },()=>{
+          this.props.getUser(this.state)
         });
 
-        this.props.getUser(response)
+   
       })
       .catch(error => {
         this.setState({
@@ -41,7 +43,8 @@ class Login extends Component {
 
   render() {
 
-    return (<div>
+    return (
+    <div>
       <h3>Please, login to our site</h3>
 
       <form onSubmit={this.handleFormSubmit}>

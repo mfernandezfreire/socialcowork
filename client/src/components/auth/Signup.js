@@ -69,7 +69,7 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <h3>¿¿Crea un proyecto o colabora, este es el comienzo!!</h3>
+        <h3>Crea un proyecto o colabora, este es el comienzo</h3>
 
         <form onSubmit={this.handleFormSubmit}>
           <fieldset>

@@ -11,6 +11,7 @@ class Navbar extends Component {
     super(props);
     this.state = { loggedInUser: null };
     this.service = new AuthService();
+    this.user = []
   }
 
   componentWillReceiveProps(nextProps) {
@@ -22,22 +23,21 @@ class Navbar extends Component {
   };
 
   render() {
-    if (this.state.loggedInUser) {
+    console.log(this.props.userInSession);
+    if (this.props.userInSession) {
       return (
         <nav className="nav-style">
           <ul>
             <li>
-              <h2>Welcome {this.state.loggedInUser.username}</h2>
-            </li>
-            <li>
-              <a onClick={this.handleLogout}>Logout</a>
+              <Link to="/home">Home</Link>
             </li>
           </ul>
-          <div className="header">
-            {/* <img src={logo} alt="" height="100"/> */}
-            <h2>Welcome {this.state.loggedInUser.username}</h2>
-            <h2>Welcome {this.state.loggedInUser._id}</h2>
-          </div>
+          <ul>
+            <li>{this.props.userInSession.nombre}</li>
+            <li>
+              <Link onClick={this.handleLogout}>Logout</Link>
+            </li>
+          </ul>
         </nav>
       );
     } else {
@@ -45,9 +45,11 @@ class Navbar extends Component {
         <div>
           <nav className="nav-style">
             <ul>
-              {/* <li>
-                <Link to="/signup">Signup</Link>
-              </li> */}
+              <li>
+                <Link to="/Choose">Home</Link>
+              </li>
+            </ul>
+            <ul>
               <li>
                 <Link to="/login">Login</Link>
               </li>

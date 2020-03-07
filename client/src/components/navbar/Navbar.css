@@ -1,9 +1,17 @@
-.nav-style .header {
+.nav-style {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: space-between;
 }
 
-.nav-style .header img {
-	margin-right: 20px;
+.nav-style ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
 }
+
+.nav-style ul li {
+	margin-right: 20px;
+	list-style-type: none;
+}
+

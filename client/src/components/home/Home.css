@@ -1,0 +1,16 @@
+.project_profesional_home {
+}
+
+.project_profesional {
+    display:flex;
+    justify-content: center;
+}
+
+.project_profesional_blocks {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.projects_profesional_block {
+}
