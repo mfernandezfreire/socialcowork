@@ -20,10 +20,10 @@ const userSchema = new Schema({
     lugar_de_ejecucion: {
         type: String
     },
-    id_administrador: [{
+    id_administrador: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }],
+    },
     id_colaboradores: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

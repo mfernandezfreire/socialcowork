@@ -20,7 +20,7 @@ class Projectcolaborator extends Component {
   componentDidMount = () => {
     axios
       .get(
-        `http://localhost:3010/api/user/projectadmin/${this.props.match.params.id}`
+        `${process.env.REACT_APP_API_URL}/user/projectadmin/${this.props.match.params.id}`
       )
       .then(responseFromApi => {
         this.setState({
@@ -51,7 +51,7 @@ class Projectcolaborator extends Component {
             <h2>Colaboradores</h2>
             <div>
               {this.state.projectcolaborators.map((project) => (
-                <Colaborators nombre={project.nombre}/>
+                <Colaborators key="project._id" nombre={project.nombre}/>
               ))}
             </div>
           </div>

@@ -4,12 +4,14 @@ import Axios from "axios"
 
 //signup y login son iguales a excepción de el html renderizado y el endpoint de nuestra API rest a la que llamamos
 //uno llama a /signup y el otro a /login usando nuestro AuthService
-class Signup extends Component {
+class Projectedit extends Component {
   constructor(props) {
     super(props);
     this.state = {nombre: "", fase: "", colectivo: "", descripcion_del_proyecto:"", profesionales_necesarios: [], lugar_de_ejecucion: "", id_administrador: "", id_colaboradores: [], image: ""};
     this.service = new AuthService();
   }
+
+  
 
 
   handleFormSubmit = event => {
@@ -135,5 +137,5 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default Projectedit;
 

@@ -21,7 +21,7 @@ class Home extends Component {
   componentDidMount = () => {
     axios
       .get(
-        `http://localhost:3010/api/user/projectsadmin/${this.props.userInSession._id}`
+        `${process.env.REACT_APP_API_URL}/user/projectsadmin/${this.props.userInSession._id}`
       )
       .then(responseFromApi => {
         this.setState({
@@ -30,7 +30,7 @@ class Home extends Component {
       });
     axios
       .get(
-        `http://localhost:3010/api/user/projectscolaborator/${this.props.userInSession._id}`
+        `${process.env.REACT_APP_API_URL}/user/projectscolaborator/${this.props.userInSession._id}`
       )
       .then(responseFromApi => {
         this.setState({
@@ -61,7 +61,7 @@ class Home extends Component {
               ></Projects>
             ))}
           </div>
-          <button><Link>Crea un proyecto</Link></button>
+          <button><Link to="/createaproject">Crea un proyecto</Link></button>
         </div> 
         <div class="project_profesional_blocks">
           <h2>Colaborador</h2>

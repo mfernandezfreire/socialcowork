@@ -18,17 +18,14 @@ class Addcolaborators extends Component {
 
 
   componentDidMount = () => {
-    axios.get(`http://localhost:3010/api/user/allprojects`)
+    axios.get(`${process.env.REACT_APP_API_URL}/user/allprojects`)
       .then(responseFromApi => {
         this.setState({
           allprojects: responseFromApi.data
         })
       })
   }
-
-
   
-
   render() {
         console.log(this.state.projectsadmin)
         console.log(this.state.projectscolaborator)

@@ -21,7 +21,7 @@ class Projects extends Component {
           <p>{this.props.lugar_de_ejecución}</p>
         </div>
         <div>
-          <Link to={"/createproject/" + this.props._id}>Gestiona</Link>
+          <Link to={"/projectedit/" + this.props._id}>Gestiona</Link>
         </div>
       </div>
     );
