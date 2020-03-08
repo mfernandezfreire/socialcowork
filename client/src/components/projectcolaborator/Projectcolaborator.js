@@ -33,11 +33,13 @@ class Projectcolaborator extends Component {
   render() {
     console.log(this.state.projectcolaborators)
     return (
-      <div class="project_colaborator">
+      <div class="project_colaborator_home">
         <h1>{this.state.projectcolaborator.nombre}</h1>
+        <div class="project_colaborator_profesional">
         <div class="project_colaborator_blocks">
           <div class="project_colaborator_block">
-            <h2>Descripción del proyecto</h2>
+            <fieldset>
+            <legend><h2>Descripción del proyecto</h2></legend>
             <h3>Fase del proyecto</h3>
             <p>{this.state.projectcolaborator.fase}</p>
             <h3>Colectivo al que atiende</h3>
@@ -45,16 +47,20 @@ class Projectcolaborator extends Component {
             <h3>Descripción del proyecto</h3>
             <p>{this.state.projectcolaborator.descripcion_del_proyecto}</p>
             <h3>Lugar de ejecución</h3>
-            <p>{this.state.projectcolaborator.lugar_de_ejecución}</p>
+            <p>{this.state.projectcolaborator.lugar_de_ejecucion}</p>
+            </fieldset>
           </div>
           <div class="project_colaborator_block">
-            <h2>Colaboradores</h2>
+            <fieldset>
+            <legend><h2>Colaboradores</h2></legend>
             <div>
               {this.state.projectcolaborators.map((project) => (
-                <Colaborators key="project._id" nombre={project.nombre}/>
+                <Colaborators key="project._id" nombre={project.nombre} apellidos={project.apellidos} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.perfil_de_linkedin}/>
               ))}
             </div>
+            </fieldset>
           </div>
+        </div>
         </div>
       </div>
     );

@@ -28,6 +28,10 @@ const userSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
+    id_empresas: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Company'
+    }],
     image: String
 }, {
     timestamps: {

@@ -3,8 +3,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../auth/AuthService";
-// import logo from "../../logo-ironhack-blue.png";
-import "./Navbar.css";
+import "./Navbar.scss";
 
 class Navbar extends Component {
   constructor(props) {
@@ -23,39 +22,39 @@ class Navbar extends Component {
   };
 
   render() {
-    console.log(this.props.userInSession);
     if (this.props.userInSession) {
       return (
         <nav className="nav-style">
           <ul>
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/home"><img src="https://res.cloudinary.com/dagreomkt/image/upload/v1583685226/SocialCoWorker/Nuevo_Logotipo_de_Marca_aothgs.png"></img></Link>
             </li>
           </ul>
           <ul>
-            <li>{this.props.userInSession.nombre}</li>
+            <li><button><Link to="/Login" className="anchors">Editar perfil</Link></button></li>
             <li>
-              <Link onClick={this.handleLogout}>Logout</Link>
+              <button><Link className="anchors" onClick={this.handleLogout}>Logout</Link></button>
             </li>
           </ul>
         </nav>
       );
     } else {
       return (
-        <div>
           <nav className="nav-style">
             <ul>
               <li>
-                <Link to="/Choose">Home</Link>
+              <Link to="/Choose"><img src="https://res.cloudinary.com/dagreomkt/image/upload/v1583685226/SocialCoWorker/Nuevo_Logotipo_de_Marca_aothgs.png" alt="logotipo"></img></Link>
               </li>
             </ul>
             <ul>
+            <li><h1>SocialCoWorker</h1></li>
+          </ul>
+            <ul>
               <li>
-                <Link to="/login">Login</Link>
+                <button><Link to="/Login" className="anchors">Login</Link></button>
               </li>
             </ul>
           </nav>
-        </div>
       );
     }
   }

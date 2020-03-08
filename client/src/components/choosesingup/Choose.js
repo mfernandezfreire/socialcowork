@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../auth/AuthService";
 // import logo from "../../logo-ironhack-blue.png";
-import "./Choose.css";
+import "./Choose.scss";
 
 class Choose extends Component {
   constructor(props) {
@@ -23,12 +23,16 @@ class Choose extends Component {
 
   render() {
       return (
-        <nav>
-          <h1>¡¡Hola!!</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel architecto ex, corrupti magnam consectetur eum qui optio repellat recusandae explicabo aliquam omnis? Non nulla quas tempore sit, eius exercitationem modi?</p>
-          <button><Link to="/Signup">Profesional</Link></button>
-          <button><Link to="/Signupcompany">Empresa</Link></button>
-        </nav>
+        <div className="choose">
+          <h1>SocialCoWorkers</h1>
+          <h2>SocialCoWorkers es una web que pretende reunir a todos los actores involucrados en la acción social</h2>
+          <p>Los profesionales podrán compartir sus ideas o conocimientos creando una red de coworkers sociales, y las empresas podrán dar el apoyo economico o buscar nuevo capital humano. De esta manera ambos siempre saldran beneficiados</p>
+          <h3>¿Cómo deseas CoWorkear?</h3>
+        <div >
+          <button ><Link className="anchors" to="/Signup">Profesional</Link></button>
+          <button ><Link className="anchors" to="/Signupcompany">Empresa</Link></button>
+        </div>
+        </div>
       );
     }
   }

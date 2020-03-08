@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AuthService from "../auth/AuthService";
 import Axios from "axios"
+import "./Createproject.scss"
 
 //signup y login son iguales a excepción de el html renderizado y el endpoint de nuestra API rest a la que llamamos
 //uno llama a /signup y el otro a /login usando nuestro AuthService
@@ -61,10 +62,10 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.props.userInSession._id}</h1>
-        <form onSubmit={this.handleFormSubmit}>
-        <fieldset>
+      <div className="Createproject">
+        <h1>Crea tu propio proyecto</h1>
+        <form className="form-flex" onSubmit={this.handleFormSubmit}>
+          <div className="form-create">
             <label>Nombre del proyecto</label>
             <input
               type="text"
@@ -96,14 +97,6 @@ class Signup extends Component {
               <option value="Población Inmigrante">Población Inmigrante</option>
               <option value="Otros">Otros</option>
             </select>
-            <br/>
-            <label>Descripción del proyecto</label>
-            <input
-              type="text"
-              name="descripcion_del_proyecto"
-              value={this.state.descripcion_del_proyecto}
-              onChange={e => this.handleChange(e)}
-            />
             <label>Profesionales Necesarios</label>
             <input
               type="text"
@@ -118,15 +111,26 @@ class Signup extends Component {
               value={this.state.lugar_de_ejecucion}
               onChange={e => this.handleChange(e)}
             />
-            <label>Administrador</label>
+            </div>
+            <div className="form-create">
+            <label>Descripción del proyecto</label>
+            <input 
+              className="description"
+              type="text"
+              name="descripcion_del_proyecto"
+              value={this.state.descripcion_del_proyecto}
+              size="500"
+              onChange={e => this.handleChange(e)}
+            />
+            {/* <label>Administrador</label>
             <input
               type="text"
               name="id_administrador"
               value={this.props.userInSession._id}
               onChange={e => this.handleChange(e)}
-            />
-            </fieldset>
-        <input type="submit" value="Sign up" />
+            /> */}
+        <input className="button" type="submit" value="Crear Proyecto" />
+            </div>
         </form>
 
         <h1>{this.state.error ? "Error" : ""}</h1>

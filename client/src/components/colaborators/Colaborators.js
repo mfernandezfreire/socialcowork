@@ -7,7 +7,7 @@ class Colaborators extends Component {
         return (
             <div class="Colaborators">
                 <ul>
-                    <li><h3>{this.props.nombre}</h3></li>
+                    <li><h3>{this.props.nombre} {this.props.apellidos}</h3></li>
                     <li>Username</li>
                     <li>{this.props.username}</li>
                     <li>Email</li>

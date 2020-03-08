@@ -1,27 +1,30 @@
 // navbar/Navbar.js
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import './Projects.css'
+import './Projects.scss'
 
 class Projects extends Component {
   render() {
     return (
       <div className="Projectsadmin">
-        <div>
-          <h2>{this.props.nombre}</h2>
-          <h3>Fase del proyecto</h3>
-          <p>{this.props.fase}</p>
-          <h3>Colectivo al que atiende</h3>
-          <p>{this.props.colectivo}</p>
-          <h3>Descripción del proyecto</h3>
-          <p>{this.props.descripcion_del_proyecto}</p>
-          <h3>Profesionales profesionales necesarios</h3>
-          <p>{this.props.profesionales_necesarios}</p>
-          <h3>Lugar de ejecución</h3>
-          <p>{this.props.lugar_de_ejecución}</p>
-        </div>
-        <div>
-          <Link to={"/projectedit/" + this.props._id}>Gestiona</Link>
+        <div className="Oneprojectsadmin">
+          <img src={this.props.imagen}></img>
+          <ul>
+          <li><h3>{this.props.nombre}</h3></li>
+          <li><h4>Fase del proyecto</h4></li>
+          <li>{this.props.fase}</li>
+          <li><h4>Colectivo al que atiende</h4></li>
+          <li>{this.props.colectivo}</li>
+          <li><h4>Ubicación del proyecto</h4></li>
+          <li>{this.props.lugar_de_ejecucion}</li>
+          <li><button><Link className="anchors" to={"/projectedit/" + this.props._id}>Gestiona</Link></button></li>
+          {/* <li><h4>Descripción del proyecto</h4></li>
+          <li>{this.props.descripcion_del_proyecto}</li>
+          <li>Profesionales profesionales necesarios</li>
+          <li>{this.props.profesionales_necesarios}</li>
+          <li>Lugar de ejecución</li>
+          <li>{this.props.lugar_de_ejecución}</li> */}
+          </ul>
         </div>
       </div>
     );

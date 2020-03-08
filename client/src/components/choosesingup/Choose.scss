@@ -1,0 +1,41 @@
+.choose {
+    width: 100vw;
+    height: 80vh;
+}
+
+.choose h1 {
+    font-size: 5em;
+    margin-bottom: 0.25em;
+}
+
+.choose h2 {
+    font-size: 1.50em;
+    margin-top: 0;
+    width: 50%;
+    margin: auto;
+}
+
+.choose h3 {
+    font-size: 1.40em;
+}
+
+.choose p {
+    width: 50%;
+    font-size: 1.40em;
+    text-align: justify;
+    margin: 2em auto;
+}
+
+.choose button {
+    background-color: #FFAA15;
+	padding: 1em 2em;
+	border-radius: 10px;
+	margin-right: 1em;
+	border: none;
+}
+
+.anchors {
+	font-size: 2em;	
+	color: #2D3142;
+	text-decoration: none;	
+}

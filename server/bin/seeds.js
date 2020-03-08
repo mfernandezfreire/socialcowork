@@ -117,12 +117,12 @@ const project = [
     lugar_de_ejecucion: "Madrid - Distrito de Villaverde",
     id_administrador: num1,
     id_colaboradores: [num2, num3, num4],
-    id_empresas: [num5],
-    image: null
+    id_empresas: [num5, num9, num13],
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583698437/aula_vacia_qmb2h3.png"
   },
-
+  
   // PROYECTO 2 AQUI
-
+  
   {
     nombre: "Acompañamiento de Personas Mayores en situación de abandono",
     fase: "Busqueda de Recursos",
@@ -131,9 +131,9 @@ const project = [
     profesionales_necesarios: ["Trabajador/a Social", "Integrador/a Social", "Educador/a Social"],
     lugar_de_ejecucion: "Madrid - Distrito de Centro",
     id_administrador: num6,
-    id_colaboradores: [num7, num8, num3],
+    id_colaboradores: [num1, num7, num8, num3],
     id_empresas: [num9],
-    image: null
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583705100/centro_de_mayores_cq93qq.png"
   },
   // PROYECTO 3 AQUI // FALTA POR DESARROLLAR PROYECTO 
   {
@@ -146,7 +146,7 @@ const project = [
     id_administrador: num10,
     id_colaboradores: [num11, num12],
     id_empresas: [num13],
-    image: null
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583697251/calle-villaverde_sq9ufw.jpg"
   }
 ]
 // Users AQUI

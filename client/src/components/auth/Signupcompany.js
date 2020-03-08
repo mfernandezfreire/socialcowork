@@ -65,10 +65,9 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <h3>Busca Ideas o Candidatos</h3>
+        <h1>Busca Ideas o Candidatos</h1>
 
-        <form onSubmit={this.handleFormSubmit}>
-          <fieldset>
+        <form className="form" onSubmit={this.handleFormSubmit}>
             <label>Username:</label>
             <input
               type="text"
@@ -76,9 +75,6 @@ class Signup extends Component {
               value={this.state.username}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-
-          <fieldset>
             <label>Password:</label>
             <input
               type="password"
@@ -86,9 +82,6 @@ class Signup extends Component {
               value={this.state.password}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-
-          <fieldset>
             <label>Nombre</label>
             <input
               type="nombre"
@@ -96,8 +89,6 @@ class Signup extends Component {
               value={this.state.nombre}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-          <fieldset>
             <label>Email</label>
             <input
               type="email"
@@ -105,8 +96,6 @@ class Signup extends Component {
               value={this.state.email}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-          <fieldset>
             <label>Telefono</label>
             <input
               type="telefono"
@@ -114,9 +103,6 @@ class Signup extends Component {
               value={this.state.telefono}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-
-          <fieldset>
             <label>Perfil de linkedin</label>
             <input
               type="perfil_de_linkedin"
@@ -124,8 +110,7 @@ class Signup extends Component {
               value={this.state.perfil_de_linkedin}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-          <input type="submit" value="Sign up" />
+          <input className="button" type="submit" value="Sign up" />
         </form>
 
         <h1>{this.state.error ? "Error" : ""}</h1>

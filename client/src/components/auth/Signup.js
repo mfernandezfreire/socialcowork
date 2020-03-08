@@ -1,7 +1,7 @@
 // auth/Signup.js
 import React, { Component } from "react";
 import AuthService from "./AuthService";
-
+import './login.scss'
 //signup y login son iguales a excepción de el html renderizado y el endpoint de nuestra API rest a la que llamamos
 //uno llama a /signup y el otro a /login usando nuestro AuthService
 class Signup extends Component {
@@ -69,30 +69,23 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <h3>Crea un proyecto o colabora, este es el comienzo</h3>
+        <h1>Crea un proyecto o colabora, este es el comienzo....</h1>
 
-        <form onSubmit={this.handleFormSubmit}>
-          <fieldset>
-            <label>Username:</label>
+        <form className="form" onSubmit={this.handleFormSubmit}>
+            <label>Username</label>
             <input
               type="text"
               name="username"
               value={this.state.username}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-
-          <fieldset>
-            <label>Password:</label>
+            <label>Password</label>
             <input
               type="password"
               name="password"
               value={this.state.password}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-
-          <fieldset>
             <label>Nombre</label>
             <input
               type="nombre"
@@ -100,9 +93,6 @@ class Signup extends Component {
               value={this.state.nombre}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-
-          <fieldset>
             <label>Apellidos</label>
             <input
               type="apellidos"
@@ -110,9 +100,6 @@ class Signup extends Component {
               value={this.state.apellidos}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-
-          <fieldset>
             <label>Email</label>
             <input
               type="email"
@@ -120,9 +107,6 @@ class Signup extends Component {
               value={this.state.email}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-
-          <fieldset>
             <label>Telefono</label>
             <input
               type="telefono"
@@ -130,9 +114,6 @@ class Signup extends Component {
               value={this.state.telefono}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-
-          <fieldset>
             <label>Perfil de linkedin</label>
             <input
               type="perfil_de_linkedin"
@@ -140,8 +121,6 @@ class Signup extends Component {
               value={this.state.perfil_de_linkedin}
               onChange={e => this.handleChange(e)}
             />
-          </fieldset>
-          <fieldset>
             <label>Profesion</label>
             <select
               name="profesion"
@@ -158,8 +137,7 @@ class Signup extends Component {
               <option value="Terapeuta Ocupacional">Terapeuta Ocupacional</option>
               <option value="Trabajador/a Social">Trabajador/a Social</option>
             </select>
-          </fieldset>
-          <input type="submit" value="Sign up" />
+          <input className="button" type="submit" value="Sign up" />
         </form>
 
         <h1>{this.state.error ? "Error" : ""}</h1>

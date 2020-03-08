@@ -1,0 +1,46 @@
+.project_profesional_home h1{
+    text-align: left;
+    margin-left: 2em;
+    margin-bottom: 0;
+    font-size: 3em;
+}
+
+.project_profesional_home button {
+    background-color: #FFAA15;
+    padding: 1em 2em;
+    border-radius: 10px;
+    margin-top: 4em;
+    margin-bottom: 2em;
+    margin-right: 1em;
+    border: none;
+}
+
+.anchors {
+    font-size: 2em;	
+    color: #2D3142;
+    text-decoration: none;	
+}
+
+.project_profesional {
+    display:flex;
+    justify-content: center;
+}
+
+.project_profesional_blocks {
+   width: 50%;
+   margin-left: 2em;
+   margin-right: 2em;
+   padding: 1em;
+}
+
+.project_profesional_blocks fieldset {
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.projects_profesional_block {
+}
+

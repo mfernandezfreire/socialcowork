@@ -5,7 +5,7 @@ import AuthService from "../auth/AuthService";
 import axios from "axios";
 import Projects from "../projects/Projects";
 import Projectscolaborator from "../projectscolaborator/Projectscolaborator";
-import "./Home.css";
+import "./Home.scss";
 
 class Home extends Component {
   constructor(props) {
@@ -44,41 +44,43 @@ class Home extends Component {
     console.log(this.state.projectscolaborator);
     return (
       <div class="project_profesional_home">
-        <h1>¡¡Hola {this.props.userInSession.nombre}!!</h1>
+        <h1>Hola {this.props.userInSession.nombre}</h1>
         <div class="project_profesional">
         <div class="project_profesional_blocks">
-          <h2>Administrador</h2>
+          <fieldset>
+          <legend><h2>Proyectos como Administrador</h2></legend>
           <div class="projects_profesional_block">
             {this.state.projectsadmin.map(project => (
               <Projects
+                imagen={project.image}
                 nombre={project.nombre}
                 fase={project.fase}
                 colectivo={project.colectivo}
-                descripcion_del_proyecto={project.descripcion_del_proyecto}
-                profesionales_necesarios={project.profesionales_necesarios}
-                lugar_de_ejecución={project.lugar_de_ejecución}
+                lugar_de_ejecucion={project.lugar_de_ejecucion}
                 _id={project._id}
               ></Projects>
             ))}
           </div>
-          <button><Link to="/createaproject">Crea un proyecto</Link></button>
+          <button><Link className="anchors" to="/createaproject">Crea un proyecto</Link></button>
+          </fieldset>
         </div> 
         <div class="project_profesional_blocks">
-          <h2>Colaborador</h2>
+        <fieldset>
+        <legend><h2>Proyectos como Colaborador</h2></legend>
           <div class="projects_profesional_block">
             {this.state.projectscolaborator.map(project => (
               <Projectscolaborator
+                imagen={project.image}
                 nombre={project.nombre}
                 fase={project.fase}
                 colectivo={project.colectivo}
-                descripcion_del_proyecto={project.descripcion_del_proyecto}
-                profesionales_necesarios={project.profesionales_necesarios}
-                lugar_de_ejecución={project.lugar_de_ejecución}
+                lugar_de_ejecucion={project.lugar_de_ejecucion}
                 _id={project._id}
               ></Projectscolaborator>
             ))}
           </div>
-          <button><Link to="/allprojects">Colabora</Link></button>
+          <button><Link className="anchors" to="/allprojects">Colabora</Link></button>
+            </fieldset>
         </div>
         </div>
       </div>
