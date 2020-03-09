@@ -48,7 +48,7 @@ class Home extends Component {
         <div class="project_profesional">
         <div class="project_profesional_blocks">
           <fieldset>
-          <legend><h2>Proyectos como Administrador</h2></legend>
+          <legend><img className="svg" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583743040/project-management_lr6ikp.svg"></img><h2>Proyectos como Administrador</h2></legend>
           <div class="projects_profesional_block">
             {this.state.projectsadmin.map(project => (
               <Projects
@@ -66,10 +66,11 @@ class Home extends Component {
         </div> 
         <div class="project_profesional_blocks">
         <fieldset>
-        <legend><h2>Proyectos como Colaborador</h2></legend>
+        <legend><img className="svg" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583743047/team_llfin5.svg"></img><h2>Proyectos como Colaborador</h2></legend>
           <div class="projects_profesional_block">
             {this.state.projectscolaborator.map(project => (
               <Projectscolaborator
+                colaborador={this.props.userInSession._id}
                 imagen={project.image}
                 nombre={project.nombre}
                 fase={project.fase}

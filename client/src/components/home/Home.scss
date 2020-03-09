@@ -15,6 +15,10 @@
     border: none;
 }
 
+.svg {
+    width: 15%;
+}
+
 .anchors {
     font-size: 2em;	
     color: #2D3142;
@@ -32,6 +36,23 @@
    margin-right: 2em;
    padding: 1em;
 }
+
+
+.project_profesional_blocks legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+}
+
+.project_profesional_blocks h2 {
+    margin-left: 1em;
+ }
+// .project_profesional_blocks legend h2 {
+// }
+
+// .project_profesional_blocks legend img {
+// }
 
 .project_profesional_blocks fieldset {
     border: 3px solid black;

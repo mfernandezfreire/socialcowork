@@ -1,18 +1,39 @@
 import React, { Component } from "react";
 import AuthService from "../auth/AuthService";
 import Axios from "axios"
+import "./Projectedit.scss"
 
 //signup y login son iguales a excepción de el html renderizado y el endpoint de nuestra API rest a la que llamamos
 //uno llama a /signup y el otro a /login usando nuestro AuthService
 class Projectedit extends Component {
   constructor(props) {
     super(props);
-    this.state = {nombre: "", fase: "", colectivo: "", descripcion_del_proyecto:"", profesionales_necesarios: [], lugar_de_ejecucion: "", id_administrador: "", id_colaboradores: [], image: ""};
+    this.state = {
+      nombre: "",
+      fase: "", 
+      colectivo: "", 
+      descripcion_del_proyecto:"", 
+      profesionales_necesarios: [],
+      lugar_de_ejecucion: "",
+      id_administrador: "",
+      id_colaboradores: [],
+      image: "",
+      projectsadmin: []
+    };
     this.service = new AuthService();
   }
 
-  
-
+  componentDidMount = () => {
+    Axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/user/projectsadmin/${this.props.match.params.id}`
+      )
+      .then(responseFromApi => {
+        this.setState({
+          projectsadmin: responseFromApi.data
+        });
+      });
+  };
 
   handleFormSubmit = event => {
     debugger
@@ -27,7 +48,7 @@ class Projectedit extends Component {
     const id_colaboradores = this.state.id_colaboradores;
     const image = this.state.image
     //aquí llamamos al endpoint /signup de nuestra API Rest usando nuestro AuthService
-    Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}).then(_=> {
+    Axios.post(`${process.env.REACT_APP_API_URL}/user//projectedit/:id`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}).then(_=> {
         this.setState({
           nombre: "",
           fase: "",
@@ -56,6 +77,8 @@ class Projectedit extends Component {
       });
   };
 
+
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -63,10 +86,8 @@ class Projectedit extends Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.props.userInSession._id}</h1>
+      <div className="Projectedit">
         <form onSubmit={this.handleFormSubmit}>
-        <fieldset>
             <label>Nombre del proyecto</label>
             <input
               type="text"
@@ -127,7 +148,6 @@ class Projectedit extends Component {
               value={this.props.userInSession._id}
               onChange={e => this.handleChange(e)}
             />
-            </fieldset>
         <input type="submit" value="Sign up" />
         </form>
 

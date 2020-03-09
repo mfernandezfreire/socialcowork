@@ -1,0 +1,45 @@
+.Allprojects {
+    display: flex;
+    flex-direction: column;
+    border: 1pixel solid black
+}
+
+.Allprojects .button {
+    background-color: #FFAA15;
+    padding: 0,7em;
+	border-radius: 10px;
+	margin-top: 2em;
+	border: 1pixel solid black;
+}
+
+
+.Allprojects-characteristics {
+    display: flex;
+    border: 1pixel solid black;
+    width: 80%;
+    margin: 2em;
+}
+
+.Allprojects-characteristics h3 {
+    margin: 0;
+}
+
+.Allprojects-charateristics-img {
+    display: flex;
+}
+
+.Allprojects-charateristics-img img {
+    width: 30%;
+    height: auto;
+    border-radius: 8%;
+}
+
+.Allprojects-characteristics ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style-type: none;
+    margin: 0;
+    text-align: justify;
+}
+

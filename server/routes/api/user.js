@@ -142,18 +142,19 @@ router.put('/editprofile/:id', (req, res, next) => {
 
 router.put('/deletecolaborator/:id', (req, res, next) => {
     const {
-        id_colaboradores
+        colaborator
     } = req.body
-    Project.findByIdAndUpdate(req.params.id,{ $pull: {id_colaboradores:  id_colaborador}}, {new:true} )
+    Project.findByIdAndUpdate(req.params.id,{ $pull: {id_colaboradores:  colaborator}}, {new:true} )
           .then(user => res.json({status: 'User modified', user: user}))
           .catch(err => next(new Error(err)))   
         })
 
 router.put('/addcolaborator/:id', (req, res, next) => {
+    
     const {
-        _id_colaborador      
+        colaborator    
         } = req.body
-        Project.findByIdAndUpdate(req.params.id,{ $push: {id_colaboradores: '5e5ff4e6eebcb479c1d8f6f3'}}, {new:true} )
+        Project.findByIdAndUpdate(req.params.id,{ $push: {id_colaboradores: colaborator}}, {new:true} )
         .then(user => res.json({status: 'Project modified', user: user}))
         .catch(err => next(new Error(err)))   
     })

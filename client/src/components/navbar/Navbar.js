@@ -47,9 +47,6 @@ class Navbar extends Component {
               </li>
             </ul>
             <ul>
-            <li><h1>SocialCoWorker</h1></li>
-          </ul>
-            <ul>
               <li>
                 <button><Link to="/Login" className="anchors">Login</Link></button>
               </li>

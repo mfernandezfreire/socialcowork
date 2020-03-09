@@ -25,6 +25,7 @@ class Choose extends Component {
       return (
         <div className="choose">
           <h1>SocialCoWorkers</h1>
+          <img src="https://res.cloudinary.com/dagreomkt/image/upload/v1583705984/sociology-social-work2.xd0203a8c_pstdom.jpg"></img>
           <h2>SocialCoWorkers es una web que pretende reunir a todos los actores involucrados en la acción social</h2>
           <p>Los profesionales podrán compartir sus ideas o conocimientos creando una red de coworkers sociales, y las empresas podrán dar el apoyo economico o buscar nuevo capital humano. De esta manera ambos siempre saldran beneficiados</p>
           <h3>¿Cómo deseas CoWorkear?</h3>

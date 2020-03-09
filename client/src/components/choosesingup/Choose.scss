@@ -5,14 +5,14 @@
 
 .choose h1 {
     font-size: 5em;
-    margin-bottom: 0.25em;
+    margin-bottom: 0;
 }
 
 .choose h2 {
     font-size: 1.50em;
     margin-top: 0;
     width: 50%;
-    margin: auto;
+    margin: 2em auto;
 }
 
 .choose h3 {
@@ -24,6 +24,11 @@
     font-size: 1.40em;
     text-align: justify;
     margin: 2em auto;
+}
+
+.choose img {
+    width: 50%;
+    margin: 1em auto;
 }
 
 .choose button {
