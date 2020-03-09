@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Link, useParams } from "react-router-dom";
 import AuthService from "../auth/AuthService";
 import axios from "axios";
-import "./Projectcolaborator.css";
+import "./Projectcolaborator.scss";
 import Colaborators from "../colaborators/Colaborators";
 
 class Projectcolaborator extends Component {

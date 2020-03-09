@@ -1,0 +1,43 @@
+.Projectsadmin {
+    width: 100%;
+}
+.Projectsadmin ul {
+    text-align: left;
+    list-style-type: none;
+}
+
+.Projectsadmin ul li {
+    width: 100%;
+}
+
+.Projectsadmin h3, h4{
+    margin: 0.5em 0;
+}
+
+.Oneprojectsadmin {
+    display: flex;
+    width: 100%;
+}
+
+.Oneprojectsadmin img {
+    margin-top: 1em;
+    width: 50%;
+    height: 50%;
+    border-radius: 5%;
+}
+
+
+.Oneprojectsadmin li button {
+    background-color: #FFAA15;
+	padding: 0.5em 1em;
+    border-radius: 10px;
+    margin-top: 3em;
+	margin-right: 1em;
+	border: none;
+}
+
+.anchors {
+	font-size: 1.5em;	
+	color: #2D3142;
+	text-decoration: none;	
+}

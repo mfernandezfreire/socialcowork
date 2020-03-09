@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AuthService from "../auth/AuthService";
 import Axios from "axios"
+import Deletecolaborator from "../deletecolaborator/Deletecolaborator"
 import "./Projectedit.scss"
 
 //signup y login son iguales a excepción de el html renderizado y el endpoint de nuestra API rest a la que llamamos
@@ -18,7 +19,8 @@ class Projectedit extends Component {
       id_administrador: "",
       id_colaboradores: [],
       image: "",
-      projectsadmin: []
+      projectsadmin: [],
+      projectscolaborator: []
     };
     this.service = new AuthService();
   }
@@ -26,11 +28,12 @@ class Projectedit extends Component {
   componentDidMount = () => {
     Axios
       .get(
-        `${process.env.REACT_APP_API_URL}/user/projectsadmin/${this.props.match.params.id}`
+        `${process.env.REACT_APP_API_URL}/user/projectadmin/${this.props.match.params.id}`
       )
       .then(responseFromApi => {
         this.setState({
-          projectsadmin: responseFromApi.data
+          projectsadmin: responseFromApi.data,
+          projectscolaborator: responseFromApi.data.id_colaboradores
         });
       });
   };
@@ -48,7 +51,7 @@ class Projectedit extends Component {
     const id_colaboradores = this.state.id_colaboradores;
     const image = this.state.image
     //aquí llamamos al endpoint /signup de nuestra API Rest usando nuestro AuthService
-    Axios.post(`${process.env.REACT_APP_API_URL}/user//projectedit/:id`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}).then(_=> {
+    Axios.put(`${process.env.REACT_APP_API_URL}/user/projectedit/:id`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}).then(_=> {
         this.setState({
           nombre: "",
           fase: "",
@@ -85,8 +88,11 @@ class Projectedit extends Component {
   };
 
   render() {
+    console.log(this.state.projectsadmin)
+    console.log(this.state.projectscolaborator)
     return (
       <div className="Projectedit">
+      <div className="Projectedit-block">
         <form onSubmit={this.handleFormSubmit}>
             <label>Nombre del proyecto</label>
             <input
@@ -152,6 +158,10 @@ class Projectedit extends Component {
         </form>
 
         <h1>{this.state.error ? "Error" : ""}</h1>
+        </div>
+        <div className="Projectedit-block">
+          {this.state.projectscolaborator.map((project) => ( <Deletecolaborator projectid={this.props.match.params.id} id={project._id} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.profesion}></Deletecolaborator>))}
+        </div>
       </div>
     );
   }

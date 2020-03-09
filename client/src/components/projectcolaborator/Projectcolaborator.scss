@@ -1,11 +1,11 @@
-.project_profesional_home h1{
+.project_colaborator_home h1{
     text-align: left;
     margin-left: 2em;
     margin-bottom: 0;
     font-size: 3em;
 }
 
-.project_profesional_home button {
+.project_colaborator_home button {
     background-color: #FFAA15;
     padding: 1em 2em;
     border-radius: 10px;
@@ -36,27 +36,29 @@
     margin: 30%;
 }
 
-.project_profesional {
+.project_colaborator_profesional {
     display:flex;
     justify-content: center;
 }
 
-.project_profesional_blocks {
-   width: 50%;
+.project_colaborator_blocks {
+   display: flex; 
+   justify-content: space-around;
+   width: 100%;
    margin-left: 1em;
    margin-right: 1em;
    padding: 1em;
 }
 
 
-.project_profesional_blocks legend {
+.project_colaborator_blocks legend {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 90%;
 }
 
-.project_profesional_blocks h2 {
+.project_colaborator_blocks h2 {
     margin-left: 1em;
  }
 // .project_profesional_blocks legend h2 {
@@ -65,7 +67,7 @@
 // .project_profesional_blocks legend img {
 // }
 
-.project_profesional_blocks fieldset {
+.project_colaborator_blocks fieldset {
     border: 3px solid black;
     border-bottom: none;
     display: flex;
@@ -74,6 +76,7 @@
     width: 95%;
 }
 
-.projects_profesional_block {
+.project_colaborator_block {
+    width: 45%;
 }
 
