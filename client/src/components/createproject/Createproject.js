@@ -11,6 +11,19 @@ class Signup extends Component {
     this.state = {nombre: "", fase: "", colectivo: "", descripcion_del_proyecto:"", profesionales_necesarios: [], lugar_de_ejecucion: "", id_administrador: "", id_colaboradores: [], image: ""};
     this.service = new AuthService();
   }
+// Pendiente de subsanar errores de Cloundinary
+//   handleFileUpload = e => {
+//     const uploadData = new FormData()
+//     uploadData.append("image", e.target.files[0])
+//     Axios.post(`${process.env.REACT_APP_API_URL}/user/upload`, uploadData)
+//         .then(response => {
+//             console.log('Subida de archivo finalizada! La URL de Cloudinary es: ', response.secure_url);
+//             this.setState({
+//                 image: response.secure_url 
+//             })
+//         })
+//         .catch(err => console.log(err))
+// }
 
 
   handleFormSubmit = event => {
@@ -24,7 +37,8 @@ class Signup extends Component {
     const lugar_de_ejecucion = this.state.lugar_de_ejecucion;
     const id_administrador = this.props.userInSession._id;
     const id_colaboradores = this.state.id_colaboradores;
-    const image = this.state.image
+    const image = ""
+    // const image = "https://res.cloudinary.com/dagreomkt/image/upload/v1582904036/folder-name/Nuevo%20Logotipo%20de%20Marca.png.png"
     //aquí llamamos al endpoint /signup de nuestra API Rest usando nuestro AuthService
     Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}).then(_=> {
         this.setState({
@@ -111,10 +125,16 @@ class Signup extends Component {
               value={this.state.lugar_de_ejecucion}
               onChange={e => this.handleChange(e)}
             />
+            {/* <label>Imagen</label>
+            <input
+              type="file"
+              name="image"
+              onChange={this.handleFileUpload}
+              ></input> */}
             </div>
             <div className="form-create">
             <label>Descripción del proyecto</label>
-            <input 
+            <textarea
               className="description"
               type="text"
               name="descripcion_del_proyecto"
@@ -132,7 +152,6 @@ class Signup extends Component {
         <input className="button" type="submit" value="Crear Proyecto" />
             </div>
         </form>
-
         <h1>{this.state.error ? "Error" : ""}</h1>
       </div>
     );

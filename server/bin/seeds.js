@@ -120,7 +120,7 @@ const project = [
     id_empresas: [num5, num9, num13],
     lat: 40.4808432,
     lon: -3.7261188,
-    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583698437/aula_vacia_qmb2h3.png"
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879093/SocialCoWorker/alejandro-cartagena-KRzGB1Dd19Q-unsplash_imamnh.jpg"
   },
   
   // PROYECTO 2 AQUI
@@ -139,21 +139,61 @@ const project = [
     lon: -3.7240931,
     image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583705100/centro_de_mayores_cq93qq.png"
   },
-  // PROYECTO 3 AQUI // FALTA POR DESARROLLAR PROYECTO 
   {
-    nombre: "Afabetización y socialización de menores migrantes",
+    nombre: "ALfabetización y socialización de menores migrantes",
     fase: "Busqueda de Recursos",
     colectivo: "Población Inmigrante",
     descripcion_del_proyecto: "El proceso de alfabetización y socialización de menores migrantes pretende acercar a estos menores a toda la población del distrito de Hortaleza eliminando los prejuicios existentes en el barrio actual.",
     profesionales_necesarios: ["Trabajador/a Social", "Integrador/a Social", "Monitor/a de Tiempo Libre"],
-    lugar_de_ejecucion: "Madrid - Distrito de Hortaleza",
+    lugar_de_ejecucion: "Madrid - Distrito de ",
     id_administrador: num10,
     id_colaboradores: [num11, num12],
     id_empresas: [num13],
     lat: 40.4808432,
     lon: -3.6723893,
-    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583697251/calle-villaverde_sq9ufw.jpg"
-  }
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879083/SocialCoWorker/brian-kndeneh-hMUH3zzjw6c-unsplash_nazm0s.jpg"
+  },
+  {
+    nombre: "Mediación intercultural como metodo de resolución de conflictos",
+    fase: "Fases Iniciales del proyecto",
+    colectivo: "Otros",
+    descripcion_del_proyecto: "Actualmente los Servicios de Mediación intercultural proporcionados por los agentes sociales en Ciudad Lineal están completamente colapsados. Es por esto por lo que se necesita urgentemente un plan de intervención a corto plazo para reforzar la convivencio de los vecinos.",
+    profesionales_necesarios: ["Trabajador/a Social", "Integrador/a Social", "Monitor/a de Tiempo Libre"],
+    lugar_de_ejecucion: "Madrid - Distrito Ciudad Lineal",
+    id_administrador: num21,
+    id_colaboradores: [num11, num12],
+    id_empresas: [num13],
+    lat: 40.4485996,
+    lon: -3.6823189,
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879057/SocialCoWorker/leigh-cooper-hdBpDRalP20-unsplash_u2qak5.jpg"
+  },{
+    nombre: "Madrid, Ciudad de Turismo sin barreras",
+    fase: "Fases Iniciales del proyecto",
+    colectivo: "Diversidad Funcional",
+    descripcion_del_proyecto: "Madrid es u una de las principales ciudades españolas en recibir turistas de todo el mundo, es por ello que como destino de turistico debemos intentar que cualquier persona pueda conocer nuestra ciudad, incluidas aquellas personas con movilidad reducida o cualquier problematica. A traves de este proyecto haremos hincapié para que los entornos más visitdas de nuestra ciudad estén libres de barreras",
+    profesionales_necesarios: ["Trabajador/a Social", "Integrador/a Social", "Monitor/a de Tiempo Libre"],
+    lugar_de_ejecucion: "Madrid - Distrito Chamberí",
+    id_administrador: num21,
+    id_colaboradores: [num11, num12],
+    id_empresas: [num13],
+    lat: 40.4361977,
+    lon: -3.7216035,
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879068/SocialCoWorker/jack-gisel-tHhqErhxVMA-unsplash_gzy1c7.jpg"
+  },
+    {
+      nombre: "Acompañamiento de personas sin hogar",
+      fase: "Busqueda de Recursos",
+      colectivo: "En Riesgo de Exclusión Social",
+      descripcion_del_proyecto: "Cada vez son más las personas sin hogar que se niegan a recibir ayuda o de las que casi no conocemos nada. Para que puedan comenzar un recorrido de inserción social es necesario que empiecen a confiar en los agentes sociales, es por ello que a traves de grupos de Integradores Sociales coordinados por Trabajadores Sociales haremos un trabajo de calle para darles a conocer los distintos recursos de la CAM.",
+      profesionales_necesarios: ["Trabajador/a Social", "Integrador/a Social", "Monitor/a de Tiempo Libre"],
+      lugar_de_ejecucion: "Madrid - Carabanchel",
+      id_administrador: num24,
+      id_colaboradores: [num23, num22],
+      id_empresas: [num13],
+      lat: 40.3814031,
+      lon: -3.7728569,
+      image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879055/SocialCoWorker/jose-antonio-gallego-vazquez-1HxbDVXiUqo-unsplash_fry3vw.jpg"
+    }
 ]
 // Users AQUI
 
@@ -167,10 +207,10 @@ const user = [
     apellidos: "Fernandez Freire",
     email: "mfernandezfreire@outlook.com",
     telefono: "657984421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Trabajador/a Social",
     cv_resumido: "Intervención 10 años en violencia de genero",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/18.jpg"
   },
   {
     _id: num2,
@@ -181,10 +221,10 @@ const user = [
     apellidos: "Lambchadti",
     email: "mafoud@outlook.com",
     telefono: "657264421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Abogado/a",
     cv_resumido: "Abogado - iniciando especialización en violencia de genero",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/86.jpg"
   },
   {
     _id: num3,
@@ -195,10 +235,10 @@ const user = [
     apellidos: "Albarran Lopez",
     email: "lauraalbarran@outlook.com",
     telefono: "657984356",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Psicologo/a",
     cv_resumido: "Psicologa - especializada en género con 5 años de experiencia en intervención",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/87.jpg"
   },
   {
     _id: num4,
@@ -209,10 +249,10 @@ const user = [
     apellidos: "Sanchez Flores",
     email: "borjasanchez@outlook.com",
     telefono: "655474421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Trabajador/a Social",
     cv_resumido: "Trabajador social - Estudiando master de violencia de género",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/37.jpg"
   },
   {
     _id: num6,
@@ -223,10 +263,10 @@ const user = [
     apellidos: "Tenorio Fernandez",
     email: "ivanternorio@outlook.com",
     telefono: "655471256",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Trabajador/a Social",
     cv_resumido: "Trabajador social - especializado en mayores",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/54.jpg"
   },
   {
     _id: num7,
@@ -237,10 +277,10 @@ const user = [
     apellidos: "Fernandez Nogueira",
     email: "judithfernandez@outlook.com",
     telefono: "654254421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Integrador/a Social",
     cv_resumido: "Integradora Social - recien graduada con 10 años de experiencia en voluntariado de mayores",
-    image: null
+    image: "https://randomuser.me/api/portraits/women/84.jpg"
   },
   {
     _id: num8,
@@ -251,10 +291,10 @@ const user = [
     apellidos: "Perez",
     email: "rafaelperez@outlook.com",
     telefono: "634574421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Terapeuta Ocupacional",
     cv_resumido: "Terapeuta Ocupacional - especializado en geriatria",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/67.jpg"
   },
   {
     _id: num9,
@@ -265,10 +305,10 @@ const user = [
     apellidos: "Quinteiro Cousiño",
     email: "mariaquinteiro@outlook.com",
     telefono: "667374421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Educador/a Social",
-    cv_resumido: "Educador/a Social - experta universitaria en gerontología",
-    image: null
+    cv_resumido: "Educador/a Social - Experta universitaria en gerontología",
+    image: "https://randomuser.me/api/portraits/women/65.jpg"
   },
   {
     _id: num11,
@@ -279,10 +319,10 @@ const user = [
     apellidos: "Ferrer Fernandez",
     email: "ivanferrerfernandez@outlook.com",
     telefono: "623434421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Trabajador/a Social",
-    cv_resumido: "Trabajadoro/a Social - Especializado en atención a menores",
-    image: null
+    cv_resumido: "Trabajador Social - Experto universitario en Dirección de SS.SS",
+    image: "https://randomuser.me/api/portraits/men/29.jpg"
   },
   {
     _id: num12,
@@ -293,10 +333,10 @@ const user = [
     apellidos: "Momo Mete",
     email: "armandomete@outlook.com",
     telefono: "667336721",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Educador/a Social",
     cv_resumido: "Educador/a Social - 10 años de experiencia en atención de menores",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/11.jpg"
   },
   {
     _id: num13,
@@ -307,10 +347,10 @@ const user = [
     apellidos: "Molina Torrejon",
     email: "frankymolina@outlook.com",
     telefono: "667374421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Educador/a Social",
     cv_resumido: "Educador Social - Master en migraciones",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/32.jpg"
   },
   {
     _id: num14,
@@ -321,10 +361,10 @@ const user = [
     apellidos: "Carceller Sabater",
     email: "pcarceller@outlook.com",
     telefono: "663454421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Integrador/a Social",
     cv_resumido: "Integrador/a Social - Recien graduado con experiencia en menores",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/68.jpg"
   },
   {
     _id: num16,
@@ -335,10 +375,10 @@ const user = [
     apellidos: "Rey Lopez",
     email: "robertoreylopez@outlook.com",
     telefono: "667374421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Sociologo/a",
     cv_resumido: "Sociologo - Master en proyectos sociales",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/60.jpg"
   },
   {
     _id: num20,
@@ -349,12 +389,12 @@ const user = [
     apellidos: "Rey Lopez",
     email: "robertoreylopez@outlook.com",
     telefono: "667374421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Sociologo/a",
     cv_resumido: "Sociologo - Master en proyectos sociales",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/47.jpg"
   },
-  {
+    {
     _id: num21,
     username: "valentingarcia",
     password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
@@ -363,10 +403,10 @@ const user = [
     apellidos: "Garcia Lopez",
     email: "valentingarcialopez@outlook.com",
     telefono: "667374421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Abogado/a",
-    cv_resumido: "Abogado - Master en abogacia",
-    image: null
+    cv_resumido: "Abogado - Especializado en causas sociales",
+    image: "https://randomuser.me/api/portraits/men/77.jpg"
   },
   {
     _id: num22,
@@ -377,10 +417,10 @@ const user = [
     apellidos: "Rey Lopez",
     email: "robertoreylopez@outlook.com",
     telefono: "667374421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Antropólogo/a",
     cv_resumido: "Antropólogo - Experto Universitario en Nuevas Tecnologías",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/69.jpg"
   },
   {
     _id: num23,
@@ -391,10 +431,10 @@ const user = [
     apellidos: "Ferrer Sanz",
     email: "jorgeferrersanz@outlook.com",
     telefono: "667374421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Terapeuta Ocupacional",
     cv_resumido: "Terapeuta Ocupacional - Especializado en diversidad funcional",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/94.jpg"
   },
   {
     _id: num24,
@@ -405,13 +445,13 @@ const user = [
     apellidos: "Valeriano Soto",
     email: "miriamvaleriano@outlook.com",
     telefono: "667374421",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     profesion: "Psicologo/a",
     cv_resumido: "Psicologo/a - Master en Psicología Clínica",
-    image: null
+    image: "https://randomuser.me/api/portraits/men/75.jpg"
   },
   // PROYECTO
-  //PROYECTO 1
+  // PROYECTO 1
   {
     _id: num5,
     username: "lacaxa",
@@ -419,11 +459,11 @@ const user = [
     rol: "Empresa",
     nombre: "La Caxa",
     busca: "Ideas",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     persona_de_contacto: "Carolina Perez",
     telefono: "646789056",
     email: "lacaxa@gmail.com",
-    image: null
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879028/SocialCoWorker/johnson-wang-iI4sR_nkkbc-unsplash_cchquo.jpg"
   },
   {
     _id: num10,
@@ -432,11 +472,11 @@ const user = [
     rol: "Empresa",
     nombre: "Asociación Realidad",
     busca: "Ideas",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     persona_de_contacto: "Francisco Sanchez",
     telefono: "646789789",
     email: "asociacionrealidad@gmail.com",
-    image: null
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879034/SocialCoWorker/priscilla-du-preez-XkKCui44iM0-unsplash_csle3p.jpg"
   },
   {
     _id: num15,
@@ -445,11 +485,11 @@ const user = [
     rol: "Empresa",
     nombre: "Roja Cruz",
     busca: "Ideas",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     persona_de_contacto: "Fernando Aldecoa",
     telefono: "643459789",
     email: "rojacruz@gmail.com",
-    image: null
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879038/SocialCoWorker/austin-distel-mpN7xjKQ_Ns-unsplash_mfr6ro.jpg"
   },
   {
     _id: num17,
@@ -458,11 +498,11 @@ const user = [
     rol: "Empresa",
     nombre: "Children the save",
     busca: "Ideas",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     persona_de_contacto: "Laura Perez",
     telefono: "643567893",
     email: "childrenthesave@gmail.com",
-    image: null
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879038/SocialCoWorker/austin-distel-mpN7xjKQ_Ns-unsplash_mfr6ro.jpg"
   },
   {
     _id: num18,
@@ -471,11 +511,11 @@ const user = [
     rol: "Empresa",
     nombre: "ACMY",
     busca: "Ideas",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     persona_de_contacto: "Benedicto Pope",
     telefono: "643567125",
     email: "acmy@gmail.com",
-    image: null
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879042/SocialCoWorker/annie-spratt-FSFfEQkd1sc-unsplash_ispbaf.jpg"
   },
   {
     _id: num19,
@@ -484,12 +524,12 @@ const user = [
     rol: "Empresa",
     nombre: "Children the save",
     busca: "Ideas",
-    perfil_de_linkedin: null,
+    perfil_de_linkedin: "linkedin.com/in/false",
     persona_de_contacto: "Cristina Sanchez",
     telefono: "643567894",
     email: "childrenthesave@gmail.com",
-    image: null
-  },
+    image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879050/SocialCoWorker/austin-distel-wD1LRb9OeEo-unsplash_qhzsuz.jpg"
+  }
 ]
 
 // COMPANIES INICIALES

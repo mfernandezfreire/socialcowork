@@ -71,7 +71,7 @@ class Addcolaborators extends Component {
             {/* <input className="searchbutton" type="submit" value="Busca" /> */}
           </form>
           <div>
-          {this.state.allprojects.map((project) => (
+          {this.state.allprojects.filter((projects) => projects._id !== this.props.userInSession._id).map((project) => (
                         <Allprojects colaborador={this.props.userInSession._id} img={project.image} nombre={project.nombre} fase={project.fase} colectivo={project.colectivo} descripcion_del_proyecto={project.descripcion_del_proyecto} profesionales_necesarios={project.profesionales_necesarios} lugar_de_ejecución={project.lugar_de_ejecucion} _id={project._id}></Allprojects>
                     ))}
           </div>

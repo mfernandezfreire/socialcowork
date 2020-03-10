@@ -9,9 +9,9 @@ const multer = require('multer');
 
 //reading the cloudinary values from the .env file
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.CLOUDINARY_KEY,
-  api_secret: process.env.CLOUDINARY_SECRET
+  cloud_name: process.env.cloudName,
+  api_key: process.env.cloudKey,
+  api_secret: process.env.cloudSecret
 });
 
 //cloudinaryStorage config. please see its API via https://www.npmjs.com/package/multer-storage-cloudinary

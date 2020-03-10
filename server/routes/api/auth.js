@@ -6,7 +6,7 @@ const router  = express.Router();
 
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const uploadCloud = require('../../config/cloudinary.js');
+
 
 
 const login = (req, user) => {
@@ -102,21 +102,7 @@ router.use((err, req, res, next) => {
 })
 
 
-//actual write to cloudinary via the middleware specified in ../config/cloudinary.js
-router.post('/upload', uploadCloud.single('photo'), (req, res, next) => {
-  const imgName = req.file.originalname
-  const newPhoto = new Photo({imgName})
-  console.log(req.file.url);
-  
-  //actual write in mongo using mongoose
-  newPhoto.save()
-  .then(photo => {
-    res.json({url: req.file, photo: photo});
-  })
-  .catch(error => {
-    console.log(error);
-  })
-});
+
 
 
 

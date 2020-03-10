@@ -3,6 +3,7 @@ const express = require('express');
 const User = require('../../models/User');
 const Project = require('../../models/Project')
 const router = express.Router();
+const uploadCloud = require('../../config/cloudinary');
 
 
 router.get('/allprojects', (req, res, next) => {
@@ -62,6 +63,7 @@ router.get('/projectadmin/:id', (req, res, next) => {
 router.post('/createproject', (req, res, next) => {
     const {
         nombre,
+        fase,
         colectivo,
         descripcion_del_proyecto,
         lugar_de_ejecucion,
@@ -72,6 +74,7 @@ router.post('/createproject', (req, res, next) => {
     } = req.body
     Project.create({
             nombre,
+            fase,
             colectivo,
             descripcion_del_proyecto,
             lugar_de_ejecucion,
@@ -253,6 +256,16 @@ router.get('/search/:name', (req, res, next) => {
         .then(projects => res.json(projects))
 })
 
+
+//Cloudinary
+router.post('/upload', uploadCloud.single('image'), (req, res, next) => {
+    
+    if(!req.file){
+        next(new Error('No file uploaded'));
+        return;
+    }
+    res.json({secure_url:req.file.secure_url})
+  });
 
 
 

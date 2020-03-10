@@ -31,7 +31,8 @@ class Navbar extends Component {
             </li>
           </ul>
           <ul>
-            <li><button><Link to="/Login" className="anchors">Editar perfil</Link></button></li>
+            <li><img src={this.props.userInSession.image}></img></li>
+            <li><button><Link to="/profile" className="anchors">Editar perfil</Link></button></li>
             <li>
               <button><Link className="anchors" onClick={this.handleLogout}>Logout</Link></button>
             </li>

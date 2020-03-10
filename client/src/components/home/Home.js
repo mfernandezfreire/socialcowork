@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../auth/AuthService";
-import axios from "axios";
+import Axios from "axios";
 import Projects from "../projects/Projects";
 import Projectscolaborator from "../projectscolaborator/Projectscolaborator";
 import Projectscompany from "../projectscompany/Projectscompany"
@@ -20,8 +20,10 @@ class Home extends Component {
     this.service = new AuthService();
   }
 
+
+
   componentDidMount = () => {
-    axios
+    Axios
       .get(
         `${process.env.REACT_APP_API_URL}/user/projectsadmin/${this.props.userInSession._id}`
       )
@@ -30,7 +32,7 @@ class Home extends Component {
           projectsadmin: responseFromApi.data
         });
       });
-    axios
+    Axios
       .get(
         `${process.env.REACT_APP_API_URL}/user/projectscolaborator/${this.props.userInSession._id}`
       )
@@ -39,7 +41,7 @@ class Home extends Component {
           projectscolaborator: responseFromApi.data
         });
       });
-    axios
+    Axios
       .get(
         `${process.env.REACT_APP_API_URL}/user/projectscompany/${this.props.userInSession._id}`
       )
