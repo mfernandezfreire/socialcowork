@@ -43,3 +43,13 @@
     text-align: justify;
 }
 
+.Searchbox {
+    display: flex;
+}
+
+.Searchbox input[name="search"] {
+    border: 1px solid black;
+    width: 70vw;
+    height: 10vh;
+}
+

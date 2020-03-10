@@ -33,13 +33,12 @@ class Deletecolaborators extends Component {
         )
           .then(response => {
             this.setState({
-              succeed: "Has eliminado correctamente al colaborador"
             });
             this.props.getUser(response.user);
           })
           .catch(error => {
             this.setState({
-              succeed: "Hubo un error al eliminar al colaborador",
+              succeed: "Has eliminado correctamente al colaborador",
               error: true
             });
           });

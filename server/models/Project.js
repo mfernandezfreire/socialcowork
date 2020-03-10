@@ -28,6 +28,12 @@ const userSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
+    lat: {
+        type: Number
+    },
+    lon: { 
+        type: Number
+    },
     id_empresas: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Company'

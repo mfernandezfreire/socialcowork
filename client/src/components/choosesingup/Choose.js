@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../auth/AuthService";
-// import logo from "../../logo-ironhack-blue.png";
+import Googlemaps from "../googlemaps/Googlemaps"
 import "./Choose.scss";
 
 class Choose extends Component {
@@ -28,6 +28,8 @@ class Choose extends Component {
           <img src="https://res.cloudinary.com/dagreomkt/image/upload/v1583705984/sociology-social-work2.xd0203a8c_pstdom.jpg"></img>
           <h2>SocialCoWorkers es una web que pretende reunir a todos los actores involucrados en la acción social</h2>
           <p>Los profesionales podrán compartir sus ideas o conocimientos creando una red de coworkers sociales, y las empresas podrán dar el apoyo economico o buscar nuevo capital humano. De esta manera ambos siempre saldran beneficiados</p>
+        <h3>Nuestros proyectos en marcha</h3>
+        <Googlemaps className="Googlemaps"></Googlemaps>
           <h3>¿Cómo deseas CoWorkear?</h3>
         <div >
           <button ><Link className="anchors" to="/Signup">Profesional</Link></button>

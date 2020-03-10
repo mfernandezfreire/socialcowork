@@ -4,10 +4,6 @@ const User = require('../../models/User');
 const Project = require('../../models/Project')
 const router = express.Router();
 
-const bcrypt = require('bcrypt');
-const passport = require('passport');
-
-
 
 router.get('/allprojects', (req, res, next) => {
     Project.find().populate({
@@ -239,6 +235,22 @@ router.put('/addproject/:id', (req, res, next) => {
             user: user
         }))
         .catch(err => next(new Error(err)))
+})
+
+router.get('/search/:name', (req, res, next) => {
+    Project.find({
+                colectivo: new RegExp(req.params.name, "gi")
+        }).sort({
+            nombre: -1
+        }).populate({
+            path: 'id_administrador',
+            model: 'User'
+        })
+        .populate({
+            path: 'id_colaboradores',
+            model: 'User'
+        })
+        .then(projects => res.json(projects))
 })
 
 

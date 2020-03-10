@@ -118,6 +118,8 @@ const project = [
     id_administrador: num1,
     id_colaboradores: [num2, num3, num4],
     id_empresas: [num5, num9, num13],
+    lat: 40.4808432,
+    lon: -3.7261188,
     image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583698437/aula_vacia_qmb2h3.png"
   },
   
@@ -133,6 +135,8 @@ const project = [
     id_administrador: num6,
     id_colaboradores: [num1, num7, num8, num3],
     id_empresas: [num9],
+    lat: 40.4178273,
+    lon: -3.7240931,
     image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583705100/centro_de_mayores_cq93qq.png"
   },
   // PROYECTO 3 AQUI // FALTA POR DESARROLLAR PROYECTO 
@@ -142,10 +146,12 @@ const project = [
     colectivo: "Población Inmigrante",
     descripcion_del_proyecto: "El proceso de alfabetización y socialización de menores migrantes pretende acercar a estos menores a toda la población del distrito de Hortaleza eliminando los prejuicios existentes en el barrio actual.",
     profesionales_necesarios: ["Trabajador/a Social", "Integrador/a Social", "Monitor/a de Tiempo Libre"],
-    lugar_de_ejecucion: "Madrid - Distrito de Centro",
+    lugar_de_ejecucion: "Madrid - Distrito de Hortaleza",
     id_administrador: num10,
     id_colaboradores: [num11, num12],
     id_empresas: [num13],
+    lat: 40.4808432,
+    lon: -3.6723893,
     image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583697251/calle-villaverde_sq9ufw.jpg"
   }
 ]

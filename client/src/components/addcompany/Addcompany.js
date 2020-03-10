@@ -8,8 +8,6 @@ import Axios from "axios";
 import Allprojectscompany from "../allprojectscompany/Allprojectscompany";
 
 
-
-
 class Addcolaborators extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +18,7 @@ class Addcolaborators extends Component {
     };
     this.service = new AuthService();
   }
+  
   
 
   componentDidMount = () => {
