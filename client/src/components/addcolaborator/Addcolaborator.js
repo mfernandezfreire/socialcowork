@@ -24,11 +24,11 @@ class Addcolaborators extends Component {
   
 
   componentDidMount = () => {
-    Axios.get(`${process.env.REACT_APP_API_URL}/user/allprojects`)
+    Axios.get(`${process.env.REACT_APP_API_URL}/user/allprojectsimple`)
       .then(responseFromApi => {
         this.setState({
           allprojects: responseFromApi.data,
-          originalAllprojects: responseFromApi.data
+          originalAllprojects: responseFromApi.data,
         })
       })
   }
@@ -37,13 +37,15 @@ class Addcolaborators extends Component {
     const originalAllprojects = [...this.state.originalAllprojects]
     let newList = []
     console.log(value)
-      newList = originalAllprojects.filter(item => {
-        // const lc = item.name.toLowerCase();
-        // const filter = value.toLowerCase();
-        const lc = item.colectivo
+    newList = originalAllprojects.filter(item => {
+      // debugger
+        const lc = item.profesionales_necesarios.toLowerCase();
+        const lt = item.colectivo.toLowerCase();
+        const filter = value.toLowerCase();
+        // const lc = item.colectivo
         console.log(lc)
-        const filter = value;
-        return lc.includes(filter);
+        // const filter = value;
+        return (lc.includes(filter) || lt.includes(filter))
       })
     
     console.log(newList) 
@@ -57,8 +59,9 @@ class Addcolaborators extends Component {
   };
   
   render() {
+    const filterAllprojects = this.state.allprojects.filter((projects) => projects.id_colaboradores.includes(this.props.userInSession._id) === false && projects.id_administrador !== this.props.userInSession._id)
       return (
-        <nav class="project_profesional_home">
+        <div class="project_profesional_home">
           <h1>Todos los proyectos</h1>
           <form>
           <input
@@ -71,11 +74,11 @@ class Addcolaborators extends Component {
             {/* <input className="searchbutton" type="submit" value="Busca" /> */}
           </form>
           <div>
-          {this.state.allprojects.filter((projects) => projects._id !== this.props.userInSession._id).map((project) => (
+          {filterAllprojects.map((project) => (
                         <Allprojects colaborador={this.props.userInSession._id} img={project.image} nombre={project.nombre} fase={project.fase} colectivo={project.colectivo} descripcion_del_proyecto={project.descripcion_del_proyecto} profesionales_necesarios={project.profesionales_necesarios} lugar_de_ejecución={project.lugar_de_ejecucion} _id={project._id}></Allprojects>
                     ))}
           </div>
-        </nav>
+        </div>
         
       );
     }

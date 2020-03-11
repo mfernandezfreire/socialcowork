@@ -23,6 +23,7 @@ import Projectcolaborator from "./components/projectcolaborator/Projectcolaborat
 import Projectedit from "./components/projectedit/Projectedit";
 import Addcompany from "./components/addcompany/Addcompany"
 import Profile from "./components/profile/Profile"
+import ProjectCompanyFollow from "./components/projectcompanyfollow/ProjectCompanyFollow"
 
 //App es la aplicación base, que se sirve del servicio AuthService para conectar con la bbdd
 class App extends Component {
@@ -79,6 +80,7 @@ class App extends Component {
             <Route exact path="/projectcolaborator/:id" render={(props) => <Projectcolaborator userInSession={this.state.loggedInUser} getUser={this.getUser} {...props}/>} />
             <Route exact path="/createaproject" render={() => <Createproject userInSession={this.state.loggedInUser} getUser={this.getUser} />} />
             <Route exact path="/projectedit/:id" render={(props) => <Projectedit userInSession={this.state.loggedInUser} getUser={this.getUser} {...props}/>} />
+            <Route exact path="/projectcompanyfollow/:id" render={(props) => <ProjectCompanyFollow userInSession={this.state.loggedInUser} getUser={this.getUser} {...props}/>} />
           </Switch>
         </div>
       );

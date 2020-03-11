@@ -14,9 +14,9 @@ const userSchema = new Schema({
         ]
     },
     descripcion_del_proyecto: String,
-    profesionales_necesarios: [{
+    profesionales_necesarios: {
         type: String
-    }],
+    },
     lugar_de_ejecucion: {
         type: String
     },

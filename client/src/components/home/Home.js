@@ -23,40 +23,84 @@ class Home extends Component {
 
 
   componentDidMount = () => {
-    Axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/user/projectsadmin/${this.props.userInSession._id}`
-      )
-      .then(responseFromApi => {
-        this.setState({
-          projectsadmin: responseFromApi.data
-        });
-      });
-    Axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/user/projectscolaborator/${this.props.userInSession._id}`
-      )
-      .then(responseFromApi => {
-        this.setState({
-          projectscolaborator: responseFromApi.data
-        });
-      });
-    Axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/user/projectscompany/${this.props.userInSession._id}`
-      )
-      .then(responseFromApi => {
-        this.setState({
-          projectscompany: responseFromApi.data
-        });
-      });
-
+    this.fetchAllInfo()
   };
 
+  fetchAllInfo(){
+    Axios
+    .get(
+      `${process.env.REACT_APP_API_URL}/user/projectsadmin/${this.props.userInSession._id}`
+    )
+    .then(responseFromApi => {
+      this.setState({
+        projectsadmin: responseFromApi.data
+      });
+    });
+
+  Axios
+    .get(
+      `${process.env.REACT_APP_API_URL}/user/projectscolaborator/${this.props.userInSession._id}`
+    )
+    .then(responseFromApi => {
+      this.setState({
+        projectscolaborator: responseFromApi.data
+      });
+    });
+
+  Axios
+    .get(
+      `${process.env.REACT_APP_API_URL}/user/projectscompany/${this.props.userInSession._id}`
+    )
+    .then(responseFromApi => {
+      this.setState({
+        projectscompany: responseFromApi.data
+      });
+    });
+  }
+
+deleteProject(projectID, COLABORATORID){
+    debugger
+    const company = this.props.userInSession._id;
+    console.log(Axios.put(
+      `${process.env.REACT_APP_API_URL}/user/deletecolaborator/${projectID}`,
+      { COLABORATORID }
+    ))
+    Axios.put(
+      `${process.env.REACT_APP_API_URL}/user/deletecolaborator/${projectID}`,
+      { COLABORATORID }
+    )
+      .then(_=> {
+        this.fetchAllInfo()
+      })
+      .catch(_=> {
+        this.setState({
+          error: true
+        });
+      });
+  }
+
+unfollowproject(projectID, COMPANYID){
+    let company = this.props.userInSession._id;
+    console.log(Axios.put(
+      `${process.env.REACT_APP_API_URL}/user/deletecompany/${projectID}`,
+      { COMPANYID }
+    ))
+    Axios.put(
+      `${process.env.REACT_APP_API_URL}/user/deletecompany/${projectID}`,
+      { COMPANYID }
+    )
+      .then(_=> {
+        this.fetchAllInfo()
+      })
+      .catch(_=> {
+        this.setState({
+          error: true
+        });
+      });
+  }
+
   render() {
-    console.log(this.props.userInSession.rol);
-    console.log(this.state.projectscolaborator);
-    console.log(this.state.projectscompany);
+  
     if (this.props.userInSession.rol === "Profesional") {
 
       return (
@@ -94,6 +138,7 @@ class Home extends Component {
                       colectivo={project.colectivo}
                       lugar_de_ejecucion={project.lugar_de_ejecucion}
                       _id={project._id}
+                      delete={()=>this.deleteProject(project._id, this.props.userInSession._id)}
                     ></Projectscolaborator>
                   ))}
                 </div>
@@ -120,6 +165,7 @@ class Home extends Component {
                       colectivo={project.colectivo}
                       lugar_de_ejecucion={project.lugar_de_ejecucion}
                       _id={project._id}
+                      unfollowproject={()=>this.unfollowproject(project._id, this.props.userInSession._id)}
                     ></Projectscompany>
                   ))}
                 </div>

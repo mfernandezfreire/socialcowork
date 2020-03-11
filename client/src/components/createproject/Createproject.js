@@ -40,7 +40,8 @@ class Signup extends Component {
     const image = ""
     // const image = "https://res.cloudinary.com/dagreomkt/image/upload/v1582904036/folder-name/Nuevo%20Logotipo%20de%20Marca.png.png"
     //aquí llamamos al endpoint /signup de nuestra API Rest usando nuestro AuthService
-    Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}).then(_=> {
+console.log( Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}))    
+Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}).then(_=> {
         this.setState({
           nombre: "",
           fase: "",

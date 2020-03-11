@@ -26,7 +26,11 @@ class Projectedit extends Component {
   }
 
   componentDidMount = () => {
-    Axios
+    this.fecthAllinfo()
+  };
+
+fecthAllinfo() {
+  Axios
       .get(
         `${process.env.REACT_APP_API_URL}/user/projectadmin/${this.props.match.params.id}`
       )
@@ -36,10 +40,25 @@ class Projectedit extends Component {
           projectscolaborator: responseFromApi.data.id_colaboradores
         });
       });
-  };
+}
+
+deleteProject(COLABORATORID) {
+        Axios.put(
+          `${process.env.REACT_APP_API_URL}/user/deletecolaborator/${this.props.match.params.id}`,
+          { COLABORATORID }
+        )
+          .then(response => {
+            this.fecthAllinfo()
+          })
+          .catch(error => {
+            this.setState({
+              error: true
+            });
+          });
+}
+ 
 
   handleFormSubmit = event => {
-    debugger
     event.preventDefault();
     const nombre = this.state.nombre;
     const fase = this.state.fase
@@ -160,7 +179,7 @@ class Projectedit extends Component {
         <h1>{this.state.error ? "Error" : ""}</h1>
         </div>
         <div className="Projectedit-block">
-          {this.state.projectscolaborator.map((project) => ( <Deletecolaborator projectid={this.props.match.params.id} id={project._id} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.profesion}></Deletecolaborator>))}
+          {this.state.projectscolaborator.map((project) => ( <Deletecolaborator delete={()=>this.deleteProject(project._id)} projectid={this.props.match.params.id} id={project._id} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.profesion}></Deletecolaborator>))}
         </div>
       </div>
     );

@@ -18,30 +18,31 @@ class Deletecolaborators extends Component {
       }
     
       handleFormSubmit = event => {
-        console.log("entra en el handle");
+        const colaborator = this.props.id
         event.preventDefault();
-        const colaborator = this.props.id;
-        console.log(
-          Axios.put(
-            `${process.env.REACT_APP_API_URL}/user/deletecolaborator/${this.props.projectid}`,
-            { colaborator }
-          )
-        );
-        Axios.put(
-          `${process.env.REACT_APP_API_URL}/user/deletecolaborator/${this.props.projectid}`,
-          { colaborator }
-        )
-          .then(response => {
-            this.setState({
-            });
-            this.props.getUser(response.user);
-          })
-          .catch(error => {
-            this.setState({
-              succeed: "Has eliminado correctamente al colaborador",
-              error: true
-            });
-          });
+        this.props.delete()
+        // const colaborator = this.props.id;
+        // console.log(
+        //   Axios.put(
+        //     `${process.env.REACT_APP_API_URL}/user/deletecolaborator/${this.props.projectid}`,
+        //     { colaborator }
+        //   )
+        // );
+        // Axios.put(
+        //   `${process.env.REACT_APP_API_URL}/user/deletecolaborator/${this.props.projectid}`,
+        //   { colaborator }
+        // )
+        //   .then(response => {
+        //     this.setState({
+        //     });
+        //     this.props.getUser(response.user);
+        //   })
+        //   .catch(error => {
+        //     this.setState({
+        //       succeed: "Has eliminado correctamente al colaborador",
+        //       error: true
+        //     });
+        //   });
       };
     
       handleChange = event => {
@@ -68,12 +69,6 @@ class Deletecolaborators extends Component {
                 </ul>  
                 <h3>{this.state.error ? `${this.state.succeed}` : `${this.state.succeed}`}</h3>
               <form onSubmit={e => this.handleFormSubmit(e)}>
-                {/* <input
-                    type="text"
-                    name="_id"
-                    value={this.props._id}
-                    onChange={e => this.handleChange(e)}
-                  /> */}
                 <input className="button" type="submit" value="Eliminar Colaborador" />
               </form>
             </div>

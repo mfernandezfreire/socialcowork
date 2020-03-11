@@ -18,6 +18,11 @@ router.get('/allprojects', (req, res, next) => {
         .then(projects => res.json(projects))
 })
 
+router.get('/allprojectsimple', (req, res, next) => {
+    Project.find()
+        .then(projects => res.json(projects))
+})
+
 
 router.get('/projectsadmin/:id', (req, res, next) => {
     Project.find({
@@ -165,16 +170,13 @@ router.put('/editprofile/:id', (req, res, next) => {
         .catch(err => next(new Error(err)))
 })
 
-
-// Terminar RUTAS ADD!!
-
 router.put('/deletecolaborator/:id', (req, res, next) => {
     const {
-        colaborator
+        COLABORATORID
     } = req.body
     Project.findByIdAndUpdate(req.params.id, {
             $pull: {
-                id_colaboradores: colaborator
+                id_colaboradores: COLABORATORID
             }
         }, {
             new: true
@@ -206,13 +208,30 @@ router.put('/addcolaborator/:id', (req, res, next) => {
 })
 
 router.put('/addcompany/:id', (req, res, next) => {
-
     const {
         colaborator
     } = req.body
     Project.findByIdAndUpdate(req.params.id, {
             $push: {
                 id_empresas: colaborator
+            }
+        }, {
+            new: true
+        })
+        .then(user => res.json({
+            status: 'Project modified',
+            user: user
+        }))
+        .catch(err => next(new Error(err)))
+})
+
+router.put('/deletecompany/:id', (req, res, next) => {
+    const {
+        COMPANYID
+    } = req.body
+    Project.findByIdAndUpdate(req.params.id, {
+            $pull: {
+                id_empresas: COMPANYID
             }
         }, {
             new: true

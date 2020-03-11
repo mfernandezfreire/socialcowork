@@ -4,6 +4,27 @@ import { Link } from "react-router-dom";
 import './Projectscompany.scss'
 
 class Projectscompany extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedInUser: "",
+      id: "",
+      succeed: "",
+      error: false,
+      allprojects: []
+    };
+  }
+
+  handleFormSubmit = e => {
+    e.preventDefault()
+    this.props.unfollowproject()
+  };
+
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
     return (
       <div className="Projectsadmin">
@@ -17,13 +38,10 @@ class Projectscompany extends Component {
           <li>{this.props.colectivo}</li>
           <li><h4>Ubicación del proyecto</h4></li>
           <li>{this.props.lugar_de_ejecucion}</li>
-          <li><button><Link className="anchors" to={"/projectedit/" + this.props._id}>Ver cambios</Link></button></li>
-          {/* <li><h4>Descripción del proyecto</h4></li>
-          <li>{this.props.descripcion_del_proyecto}</li>
-          <li>Profesionales profesionales necesarios</li>
-          <li>{this.props.profesionales_necesarios}</li>
-          <li>Lugar de ejecución</li>
-          <li>{this.props.lugar_de_ejecución}</li> */}
+          <li><button><Link className="anchors" to={"/projectcompanyfollow/" + this.props._id}>Ver cambios</Link></button></li>
+          <form onSubmit={e => this.handleFormSubmit(e)}>
+            <input className="button" type="submit" value="Dejar de Seguir" />
+          </form>
           </ul>
         </div>
       </div>
