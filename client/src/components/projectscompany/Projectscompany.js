@@ -33,15 +33,15 @@ class Projectscompany extends Component {
           <ul>
           <li><h3>{this.props.nombre}</h3></li>
           <li><h4>Fase del proyecto</h4></li>
-          <li>{this.props.fase}</li>
+          <li><p>{this.props.fase}</p></li>
           <li><h4>Colectivo al que atiende</h4></li>
-          <li>{this.props.colectivo}</li>
+          <li><p>{this.props.colectivo}</p></li>
           <li><h4>Ubicación del proyecto</h4></li>
-          <li>{this.props.lugar_de_ejecucion}</li>
-          <li><button><Link className="anchors" to={"/projectcompanyfollow/" + this.props._id}>Ver cambios</Link></button></li>
-          <form onSubmit={e => this.handleFormSubmit(e)}>
-            <input className="button" type="submit" value="Dejar de Seguir" />
-          </form>
+          <li><p>{this.props.lugar_de_ejecucion}</p></li>
+          <li className="button-colaborator-flex"><button><Link className="anchors" to={"/projectcompanyfollow/" + this.props._id}>VER CAMBIOS</Link></button><form onSubmit={e => this.handleFormSubmit(e)}>
+            <input className="button-delete" type="submit" value="DEJAR DE SEGUIR" />
+          </form></li>
+          
           </ul>
         </div>
       </div>

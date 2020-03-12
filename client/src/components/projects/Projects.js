@@ -12,12 +12,12 @@ class Projects extends Component {
           <ul>
           <li><h3>{this.props.nombre}</h3></li>
           <li><h4>Fase del proyecto</h4></li>
-          <li>{this.props.fase}</li>
+          <li><p>{this.props.fase}</p></li>
           <li><h4>Colectivo al que atiende</h4></li>
-          <li>{this.props.colectivo}</li>
+          <li><p>{this.props.colectivo}</p></li>
           <li><h4>Ubicación del proyecto</h4></li>
-          <li>{this.props.lugar_de_ejecucion}</li>
-          <li><button><Link className="anchors" to={"/projectedit/" + this.props._id}>Gestiona</Link></button></li>
+          <li><p>{this.props.lugar_de_ejecucion}</p></li>
+          <li id="button-projects"><button><Link className="anchors"  to={"/projectedit/" + this.props._id}>GESTIONA TU PROYECTO</Link></button></li>
           {/* <li><h4>Descripción del proyecto</h4></li>
           <li>{this.props.descripcion_del_proyecto}</li>
           <li>Profesionales profesionales necesarios</li>

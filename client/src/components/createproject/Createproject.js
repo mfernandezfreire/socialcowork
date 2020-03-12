@@ -37,10 +37,9 @@ class Signup extends Component {
     const lugar_de_ejecucion = this.state.lugar_de_ejecucion;
     const id_administrador = this.props.userInSession._id;
     const id_colaboradores = this.state.id_colaboradores;
-    const image = ""
+    const image = "https://res.cloudinary.com/dagreomkt/image/upload/v1582904036/folder-name/Nuevo%20Logotipo%20de%20Marca.png.png"
     // const image = "https://res.cloudinary.com/dagreomkt/image/upload/v1582904036/folder-name/Nuevo%20Logotipo%20de%20Marca.png.png"
-    //aquí llamamos al endpoint /signup de nuestra API Rest usando nuestro AuthService
-console.log( Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}))    
+// console.log( Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}))    
 Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase, colectivo, descripcion_del_proyecto, profesionales_necesarios, lugar_de_ejecucion, id_administrador, id_colaboradores, image}).then(_=> {
         this.setState({
           nombre: "",
@@ -83,6 +82,7 @@ Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase,
           <div className="form-create">
             <label>Nombre del proyecto</label>
             <input
+              className="create-input"
               type="text"
               name="nombre"
               value={this.state.nombre}
@@ -90,6 +90,7 @@ Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase,
             />
             <label>Fase del proyecto</label>
             <select
+              className="create-input"
               name="fase"
               value={this.state.fase}
               onChange={e => this.handleChange(e)}
@@ -100,6 +101,7 @@ Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase,
             </select>
             <label>Colectivo al que atiende</label>
             <select
+               className="create-input"
               name="colectivo"
               value={this.state.colectivo}
               onChange={e => this.handleChange(e)}
@@ -114,6 +116,7 @@ Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase,
             </select>
             <label>Profesionales Necesarios</label>
             <input
+            className="create-input"
               type="text"
               name="profesionales_necesarios"
               value={this.state.profesionales_necesarios}
@@ -121,6 +124,7 @@ Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase,
             />
             <label>Lugar de Ejecución</label>
             <input
+              className="create-input"
               type="text"
               name="lugar_de_ejecucion"
               value={this.state.lugar_de_ejecucion}
@@ -140,7 +144,7 @@ Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase,
               type="text"
               name="descripcion_del_proyecto"
               value={this.state.descripcion_del_proyecto}
-              size="500"
+              size="400"
               onChange={e => this.handleChange(e)}
             />
             {/* <label>Administrador</label>
@@ -150,7 +154,10 @@ Axios.post(`${process.env.REACT_APP_API_URL}/user/createproject`, {nombre, fase,
               value={this.props.userInSession._id}
               onChange={e => this.handleChange(e)}
             /> */}
-        <input className="button" type="submit" value="Crear Proyecto" />
+            <input className="button-form" type="submit" value="CREAR UN PROYECTO" />
+            </div>
+            <div>
+
             </div>
         </form>
         <h1>{this.state.error ? "Error" : ""}</h1>

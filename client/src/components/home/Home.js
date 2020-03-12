@@ -1,8 +1,6 @@
-// navbar/Navbar.js
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AuthService from "../auth/AuthService";
-import Axios from "axios";
+import UserService from "../../services/UserService"
 import Projects from "../projects/Projects";
 import Projectscolaborator from "../projectscolaborator/Projectscolaborator";
 import Projectscompany from "../projectscompany/Projectscompany"
@@ -17,9 +15,8 @@ class Home extends Component {
       projectscolaborator: [],
       projectscompany: []
     };
-    this.service = new AuthService();
+    this.service = new UserService();
   }
-
 
 
   componentDidMount = () => {
@@ -27,48 +24,32 @@ class Home extends Component {
   };
 
   fetchAllInfo(){
-    Axios
-    .get(
-      `${process.env.REACT_APP_API_URL}/user/projectsadmin/${this.props.userInSession._id}`
-    )
-    .then(responseFromApi => {
+
+    this.service.showprojectsadmin(this.props.userInSession._id)
+    .then( response => {
+      console.log(response)
       this.setState({
-        projectsadmin: responseFromApi.data
+        projectsadmin: response
       });
     });
 
-  Axios
-    .get(
-      `${process.env.REACT_APP_API_URL}/user/projectscolaborator/${this.props.userInSession._id}`
-    )
-    .then(responseFromApi => {
+    this.service.showprojectscolaborator(this.props.userInSession._id)
+    .then(response => {
       this.setState({
-        projectscolaborator: responseFromApi.data
+        projectscolaborator: response
       });
     });
 
-  Axios
-    .get(
-      `${process.env.REACT_APP_API_URL}/user/projectscompany/${this.props.userInSession._id}`
-    )
-    .then(responseFromApi => {
+  this.service.showprojectscompany(this.props.userInSession._id)
+    .then(response => {
       this.setState({
-        projectscompany: responseFromApi.data
+        projectscompany: response
       });
     });
   }
 
 deleteProject(projectID, COLABORATORID){
-    debugger
-    const company = this.props.userInSession._id;
-    console.log(Axios.put(
-      `${process.env.REACT_APP_API_URL}/user/deletecolaborator/${projectID}`,
-      { COLABORATORID }
-    ))
-    Axios.put(
-      `${process.env.REACT_APP_API_URL}/user/deletecolaborator/${projectID}`,
-      { COLABORATORID }
-    )
+    this.service.deletecolaborator(projectID, COLABORATORID)
       .then(_=> {
         this.fetchAllInfo()
       })
@@ -80,15 +61,7 @@ deleteProject(projectID, COLABORATORID){
   }
 
 unfollowproject(projectID, COMPANYID){
-    let company = this.props.userInSession._id;
-    console.log(Axios.put(
-      `${process.env.REACT_APP_API_URL}/user/deletecompany/${projectID}`,
-      { COMPANYID }
-    ))
-    Axios.put(
-      `${process.env.REACT_APP_API_URL}/user/deletecompany/${projectID}`,
-      { COMPANYID }
-    )
+    this.service.deletecompany(projectID, COMPANYID)
       .then(_=> {
         this.fetchAllInfo()
       })
@@ -102,15 +75,15 @@ unfollowproject(projectID, COMPANYID){
   render() {
   
     if (this.props.userInSession.rol === "Profesional") {
-
       return (
-        <div class="project_profesional_home">
-          <h1>Hola {this.props.userInSession.nombre}</h1>
-          <div class="project_profesional">
-            <div class="project_profesional_blocks">
-              <fieldset>
-                <legend><img className="svg" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583743040/project-management_lr6ikp.svg"></img><h2>Proyectos como Administrador</h2></legend>
+        <div className="project_profesional_home">
+          <div className="project_profesional">
+            <div className="project_profesional_blocks">
+             <div className="title-bar">
+                <img className="svg" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583743040/project-management_lr6ikp.svg"></img><h2>Tus Proyectos como Administrador</h2>
+             </div>
                 <div class="projects_profesional_block">
+                <button><Link className="anchors" to="/createaproject">CREA UN PROYECTO</Link></button>
                   {this.state.projectsadmin.map(project => (
                     <Projects
                       imagen={project.image}
@@ -122,12 +95,12 @@ unfollowproject(projectID, COMPANYID){
                     ></Projects>
                   ))}
                 </div>
-                <button><Link className="anchors" to="/createaproject">Crea un proyecto</Link></button>
-              </fieldset>
             </div>
             <div class="project_profesional_blocks">
-              <fieldset>
-                <legend><img className="svg" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583743047/team_llfin5.svg"></img><h2>Proyectos como Colaborador</h2></legend>
+              <div className="title-bar">
+               <img className="svg" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583743047/team_llfin5.svg"></img><h2>Proyectos como Colaborador</h2>
+                </div>
+                  <button><Link className="anchors" to="/allprojects">COLABORA</Link></button>
                 <div class="projects_profesional_block">
                   {this.state.projectscolaborator.map(project => (
                     <Projectscolaborator
@@ -142,8 +115,6 @@ unfollowproject(projectID, COMPANYID){
                     ></Projectscolaborator>
                   ))}
                 </div>
-                <button><Link className="anchors" to="/allprojects">Colabora</Link></button>
-              </fieldset>
             </div>
           </div>
         </div>
@@ -151,11 +122,12 @@ unfollowproject(projectID, COMPANYID){
     } else {
       return (
         <div class="project_profesional_home">
-          <h1>Bienvenida "{this.props.userInSession.nombre}"</h1>
           <div class="project_profesional">
             <div class="project_profesional_blocks">
-              <fieldset>
-                <legend><img className="svg" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583782165/crm_yzgdd0.svg"></img><h2>Proyectos que sigues</h2></legend>
+            <div className="title-bar">
+                <img className="svg" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583782165/crm_yzgdd0.svg"></img><h2>Proyectos que sigues</h2>
+                </div>
+                <button><Link className="anchors" to="/allprojectscompany">BUSCA MÁS PROYECTOS</Link></button>
                 <div class="projects_profesional_block">
                   {this.state.projectscompany.map(project => (
                     <Projectscompany
@@ -169,13 +141,6 @@ unfollowproject(projectID, COMPANYID){
                     ></Projectscompany>
                   ))}
                 </div>
-              </fieldset>
-            </div>
-            <div class="project_profesional_blocks">
-              <fieldset  >
-                <legend><img className="svg" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583782165/innovation_opym6n.svg"></img><h2>Busca Proyectos</h2></legend>
-                <button className="buttoncompany"><Link className="anchorscompany" to="/allprojectscompany">Ver</Link></button>
-              </fieldset>
             </div>
           </div>
         </div>

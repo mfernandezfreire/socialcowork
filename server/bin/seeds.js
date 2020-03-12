@@ -57,6 +57,14 @@ const num22 = new mongoose.mongo.ObjectId();
 const num23 = new mongoose.mongo.ObjectId();
 const num24 = new mongoose.mongo.ObjectId();
 
+// Id EMPRESAS VARIOS
+
+const num26 = new mongoose.mongo.ObjectId();
+const num27 = new mongoose.mongo.ObjectId();
+const num28 = new mongoose.mongo.ObjectId();
+const num29 = new mongoose.mongo.ObjectId();
+const num30 = new mongoose.mongo.ObjectId();
+const num31 = new mongoose.mongo.ObjectId();
 
 // Id EMPRESAS - VARIOS
 
@@ -117,7 +125,7 @@ const project = [
     lugar_de_ejecucion: "Madrid - Distrito de Villaverde",
     id_administrador: num1,
     id_colaboradores: [num2, num3, num4],
-    id_empresas: [num5, num9, num13],
+    id_empresas: [num5, num15],
     lat: 40.4808432,
     lon: -3.7261188,
     image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879093/SocialCoWorker/alejandro-cartagena-KRzGB1Dd19Q-unsplash_imamnh.jpg"
@@ -134,7 +142,7 @@ const project = [
     lugar_de_ejecucion: "Madrid - Distrito de Centro",
     id_administrador: num6,
     id_colaboradores: [num1, num7, num8, num3],
-    id_empresas: [num9],
+    id_empresas: [num10],
     lat: 40.4178273,
     lon: -3.7240931,
     image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583705100/centro_de_mayores_cq93qq.png"
@@ -148,7 +156,7 @@ const project = [
     lugar_de_ejecucion: "Madrid - Distrito de ",
     id_administrador: num10,
     id_colaboradores: [num11, num12],
-    id_empresas: [num13],
+    id_empresas: [num15],
     lat: 40.4808432,
     lon: -3.6723893,
     image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879083/SocialCoWorker/brian-kndeneh-hMUH3zzjw6c-unsplash_nazm0s.jpg"
@@ -162,7 +170,7 @@ const project = [
     lugar_de_ejecucion: "Madrid - Distrito Ciudad Lineal",
     id_administrador: num21,
     id_colaboradores: [num11, num12],
-    id_empresas: [num13],
+    id_empresas: [num17],
     lat: 40.4485996,
     lon: -3.6823189,
     image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879057/SocialCoWorker/leigh-cooper-hdBpDRalP20-unsplash_u2qak5.jpg"
@@ -175,7 +183,7 @@ const project = [
     lugar_de_ejecucion: "Madrid - Distrito Chamberí",
     id_administrador: num21,
     id_colaboradores: [num11, num12],
-    id_empresas: [num13],
+    id_empresas: [num18],
     lat: 40.4361977,
     lon: -3.7216035,
     image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879068/SocialCoWorker/jack-gisel-tHhqErhxVMA-unsplash_gzy1c7.jpg"
@@ -189,7 +197,7 @@ const project = [
       lugar_de_ejecucion: "Madrid - Carabanchel",
       id_administrador: num24,
       id_colaboradores: [num23, num22],
-      id_empresas: [num13],
+      id_empresas: [num19],
       lat: 40.3814031,
       lon: -3.7728569,
       image: "https://res.cloudinary.com/dagreomkt/image/upload/v1583879055/SocialCoWorker/jose-antonio-gallego-vazquez-1HxbDVXiUqo-unsplash_fry3vw.jpg"
@@ -534,81 +542,81 @@ const user = [
 
 // COMPANIES INICIALES
 
-// const company = [
-//   //PROYECTO 1
-//   {
-//     _id: num5,
-//     username: "lacaxa",
-//     password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
-//     nombre: "La Caxa",
-//     busca: "Ideas",
-//     perfil_de_linkedin: null,
-//     persona_de_contacto: "Carolina Perez",
-//     telefono: "646789056",
-//     email: "lacaxa@gmail.com",
-//     image: null
-//   },
-//   {
-//     _id: num10,
-//     username: "realidad",
-//     password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
-//     nombre: "Asociación Realidad",
-//     busca: "Ideas",
-//     perfil_de_linkedin: null,
-//     persona_de_contacto: "Francisco Sanchez",
-//     telefono: "646789789",
-//     email: "asociacionrealidad@gmail.com",
-//     image: null
-//   },
-//   {
-//     _id: num15,
-//     username: "rojacruz",
-//     password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
-//     nombre: "Roja Cruz",
-//     busca: "Ideas",
-//     perfil_de_linkedin: null,
-//     persona_de_contacto: "Fernando Aldecoa",
-//     telefono: "643459789",
-//     email: "rojacruz@gmail.com",
-//     image: null
-//   },
-//   {
-//     _id: num16,
-//     username: "childrensave",
-//     password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
-//     nombre: "Children the save",
-//     busca: "Ideas",
-//     perfil_de_linkedin: null,
-//     persona_de_contacto: "Cristina Sanchez",
-//     telefono: "643567894",
-//     email: "childrenthesave@gmail.com",
-//     image: null
-//   },
-//   {
-//     _id: num17,
-//     username: "carritas",
-//     password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
-//     nombre: "Children the save",
-//     busca: "Ideas",
-//     perfil_de_linkedin: null,
-//     persona_de_contacto: "Laura Perez",
-//     telefono: "643567893",
-//     email: "childrenthesave@gmail.com",
-//     image: null
-//   },
-//   {
-//     _id: num18,
-//     username: "ACMY",
-//     password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
-//     nombre: "ACMY",
-//     busca: "Ideas",
-//     perfil_de_linkedin: null,
-//     persona_de_contacto: "Benedicto Pope",
-//     telefono: "643567125",
-//     email: "acmy@gmail.com",
-//     image: null
-//   }
-// ]
+const company = [
+  //PROYECTO 1
+  {
+    _id: num26,
+    username: "lacaxa",
+    password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
+    nombre: "La Caxa",
+    busca: "Ideas",
+    perfil_de_linkedin: null,
+    persona_de_contacto: "Carolina Perez",
+    telefono: "646789056",
+    email: "lacaxa@gmail.com",
+    image: null
+  },
+  {
+    _id: num27,
+    username: "realidad",
+    password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
+    nombre: "Asociación Realidad",
+    busca: "Ideas",
+    perfil_de_linkedin: null,
+    persona_de_contacto: "Francisco Sanchez",
+    telefono: "646789789",
+    email: "asociacionrealidad@gmail.com",
+    image: null
+  },
+  {
+    _id: num28,
+    username: "rojacruz",
+    password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
+    nombre: "Roja Cruz",
+    busca: "Ideas",
+    perfil_de_linkedin: null,
+    persona_de_contacto: "Fernando Aldecoa",
+    telefono: "643459789",
+    email: "rojacruz@gmail.com",
+    image: null
+  },
+  {
+    _id: num29,
+    username: "childrensave",
+    password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
+    nombre: "Children the save",
+    busca: "Ideas",
+    perfil_de_linkedin: null,
+    persona_de_contacto: "Cristina Sanchez",
+    telefono: "643567894",
+    email: "childrenthesave@gmail.com",
+    image: null
+  },
+  {
+    _id: num30,
+    username: "carritas",
+    password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
+    nombre: "Children the save",
+    busca: "Ideas",
+    perfil_de_linkedin: null,
+    persona_de_contacto: "Laura Perez",
+    telefono: "643567893",
+    email: "childrenthesave@gmail.com",
+    image: null
+  },
+  {
+    _id: num31,
+    username: "ACMY",
+    password: bcrypt.hashSync("123", bcrypt.genSaltSync(bcryptSalt)),
+    nombre: "ACMY",
+    busca: "Ideas",
+    perfil_de_linkedin: null,
+    persona_de_contacto: "Benedicto Pope",
+    telefono: "643567125",
+    email: "acmy@gmail.com",
+    image: null
+  }
+]
 
 mongoose
   .connect(process.env.DBURL, {
@@ -625,11 +633,10 @@ mongoose
           .then(() => {
             return Project.create(project);
           })
-    // Anterior a simplificar modelo
-    // Company.deleteMany()
-    //     .then(() => {
-    //       return Company.create(company);
-    //     })     
+    Company.deleteMany()
+        .then(() => {
+          return Company.create(company);
+        })     
       .then(() => {
         console.log("succesfully added all the data");
         mongoose.connection.close();

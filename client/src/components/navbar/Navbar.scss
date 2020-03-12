@@ -17,10 +17,6 @@
 	list-style-type: none;
 }
 
-.nav-style img {
-	width: 6vw;
-	margin-left: 0;
-}
 
 .nav-style button {
 	background-color: #FFAA15;
@@ -31,9 +27,18 @@
 }
 
 .anchors {
-	font-size: 2em;	
+	font-size: 1em;	
 	color: #2D3142;
 	text-decoration: none;
 
 	
+}
+
+.profile-photo {
+	width: 3.5vw;
+	border-radius: 5px;
+}
+
+.logo {
+	width: 5vw;
 }

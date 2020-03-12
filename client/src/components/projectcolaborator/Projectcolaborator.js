@@ -33,32 +33,37 @@ class Projectcolaborator extends Component {
   render() {
     console.log(this.state.projectcolaborators)
     return (
-      <div class="project_colaborator_home">
-        <h1>{this.state.projectcolaborator.nombre}</h1>
-        <div class="project_colaborator_profesional">
-        <div class="project_colaborator_blocks">
-          <div class="project_colaborator_block">
-            <fieldset>
-            <legend><h2>Descripción del proyecto</h2></legend>
-            <h3>Fase del proyecto</h3>
-            <p>{this.state.projectcolaborator.fase}</p>
-            <h3>Colectivo al que atiende</h3>
-            <p>{this.state.projectcolaborator.colectivo}</p>
-            <h3>Descripción del proyecto</h3>
-            <p>{this.state.projectcolaborator.descripcion_del_proyecto}</p>
-            <h3>Lugar de ejecución</h3>
-            <p>{this.state.projectcolaborator.lugar_de_ejecucion}</p>
-            </fieldset>
+      <div className="follow-project-page">
+       <div className="follow-project-button">
+          <button><Link to="/home" className="anchors">Atras</Link></button>
+          <h1>Sigue tu proyecto</h1>
+        </div>
+      <div className="follow-project-pagetitle-bar">
+               <img className="svg" src={this.state.projectcolaborator.image}></img>
+               <h2>{this.state.projectcolaborator.nombre}</h2>
+                </div>
+        <div className="follow-project">
+        <div className="follow-project-colaborators-block">
+          <div className="follow-project-colaborators-blocks">
+            <ul className="follow-project-colaborators-project-description">
+              <li><h3>Descripción del Proyecto</h3></li>
+              <li><h4>Fase del proyecto</h4></li>
+              <li><p>{this.state.projectcolaborator.fase}</p></li>
+              <li><h4>Colectivo al que atiende</h4></li>
+              <li><p>{this.state.projectcolaborator.colectivo}</p></li>
+              <li><h4>Descripción del proyecto</h4></li>
+              <li><p>{this.state.projectcolaborator.descripcion_del_proyecto}</p></li>
+              <li><h4>Lugar de ejecución</h4></li>
+              <li><p>{this.state.projectcolaborator.lugar_de_ejecucion}</p></li>
+            </ul>
           </div>
-          <div class="project_colaborator_block">
-            <fieldset>
-            <legend><h2>Colaboradores</h2></legend>
-            <div>
+          <div class="follow-project-colaborators-description">
+            <h3>Colaboradores Asociados al Projecto</h3>
+            <div class="follow-project-colaborators-single">
               {this.state.projectcolaborators.map((project) => (
-                <Colaborators key="project._id" nombre={project.nombre} apellidos={project.apellidos} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.perfil_de_linkedin}/>
+                <Colaborators className="Colaborators" key="project._id" image={project.image} nombre={project.nombre} apellidos={project.apellidos} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.profesion}/>
               ))}
             </div>
-            </fieldset>
           </div>
         </div>
         </div>

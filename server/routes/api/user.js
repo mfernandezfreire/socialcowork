@@ -62,6 +62,10 @@ router.get('/projectadmin/:id', (req, res, next) => {
             path: 'id_colaboradores',
             model: 'User'
         })
+        .populate({
+            path: 'id_empresas',
+            model: 'User'
+        })
         .then(projects => res.json(projects))
 })
 

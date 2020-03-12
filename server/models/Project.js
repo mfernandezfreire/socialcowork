@@ -2,18 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    nombre: String,
+    nombre: { type: String, required: true },
     fase: {
         type: String,
-        enum: ["Elaboración del diseño", "Busqueda de Recursos", "Fases Iniciales del proyecto"]
+        enum: ["Elaboración del diseño", "Busqueda de Recursos", "Fases Iniciales del proyecto"],
+        required: true
     },
     colectivo: {
         type: String,
         enum: ["Violencia de Genero", "Diversidad Funcional",
             "En Riesgo de Exclusión Social", "Mayores", "Menores", "Población Inmigrante", "Otros"
-        ]
+        ],
+        required: true
     },
-    descripcion_del_proyecto: String,
+    descripcion_del_proyecto: { type: String, required: true },
     profesionales_necesarios: {
         type: String
     },

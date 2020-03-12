@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Link, useParams } from "react-router-dom";
 import AuthService from "../auth/AuthService";
 import Axios from "axios"
-import Deletecolaborator from "../deletecolaborator/Deletecolaborator"
-import "./Projectedit.scss"
+import "../projectcolaborator/Projectcolaborator.scss"
+import Deletecolaborators from "../deletecolaborator/Deletecolaborator";
+import Company from "../Company/Company"
 
 //signup y login son iguales a excepción de el html renderizado y el endpoint de nuestra API rest a la que llamamos
 //uno llama a /signup y el otro a /login usando nuestro AuthService
@@ -20,7 +22,8 @@ class Projectedit extends Component {
       id_colaboradores: [],
       image: "",
       projectsadmin: [],
-      projectscolaborator: []
+      projectscolaborator: [],
+      projectscompany: []
     };
     this.service = new AuthService();
   }
@@ -37,7 +40,8 @@ fecthAllinfo() {
       .then(responseFromApi => {
         this.setState({
           projectsadmin: responseFromApi.data,
-          projectscolaborator: responseFromApi.data.id_colaboradores
+          projectscolaborator: responseFromApi.data.id_colaboradores,
+          projectscompany: responseFromApi.data.id_empresas
         });
       });
 }
@@ -99,89 +103,81 @@ deleteProject(COLABORATORID) {
       });
   };
 
-
-
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
   render() {
-    console.log(this.state.projectsadmin)
-    console.log(this.state.projectscolaborator)
     return (
-      <div className="Projectedit">
-      <div className="Projectedit-block">
-        <form onSubmit={this.handleFormSubmit}>
-            <label>Nombre del proyecto</label>
-            <input
-              type="text"
-              name="nombre"
-              value={this.state.nombre}
-              onChange={e => this.handleChange(e)}
-            />
-            <label>Fase del proyecto</label>
-            <select
-              name="fase"
-              value={this.state.fase}
-              onChange={e => this.handleChange(e)}
-            >
-              <option value="Elaboración del diseño" selected>Elaboración del diseño</option>
-              <option value="Busqueda de Recursos">Busqueda de recursos</option>/option>
-              <option value="Fases Iniciales del proyecto">Fases Iniciales del proyecto</option>
-            </select>
-            <label>Colectivo al que atiende</label>
-            <select
-              name="colectivo"
-              value={this.state.colectivo}
-              onChange={e => this.handleChange(e)}
-            >
-              <option value="Violencia de Genero" selected>Violencia de Género</option>
-              <option value="Diversidad Funcional">Diversidad Funcional</option>/option>
-              <option value="En Riesgo de Exclusión Social">En riesgo de exclusión social</option>
-              <option value="Mayores">Mayores</option>
-              <option value="Menores">Menores</option>
-              <option value="Población Inmigrante">Población Inmigrante</option>
-              <option value="Otros">Otros</option>
-            </select>
-            <br/>
-            <label>Descripción del proyecto</label>
-            <input
-              type="text"
-              name="descripcion_del_proyecto"
-              value={this.state.descripcion_del_proyecto}
-              onChange={e => this.handleChange(e)}
-            />
-            <label>Profesionales Necesarios</label>
-            <input
-              type="text"
-              name="profesionales_necesarios"
-              value={this.state.profesionales_necesarios}
-              onChange={e => this.handleChange(e)}
-            />
-            <label>Lugar de Ejecución</label>
-            <input
-              type="text"
-              name="lugar_de_ejecucion"
-              value={this.state.lugar_de_ejecucion}
-              onChange={e => this.handleChange(e)}
-            />
-            <label>Administrador</label>
-            <input
-              type="text"
-              name="id_administrador"
-              value={this.props.userInSession._id}
-              onChange={e => this.handleChange(e)}
-            />
-        <input type="submit" value="Sign up" />
-        </form>
-
-        <h1>{this.state.error ? "Error" : ""}</h1>
+      <div className="follow-project-page">
+       <div className="follow-project-button">
+          <button><Link to="/home" className="anchors">Atras</Link></button>
+          <h1>Gestiona Tu Proyecto</h1>
         </div>
-        <div className="Projectedit-block">
-          {this.state.projectscolaborator.map((project) => ( <Deletecolaborator delete={()=>this.deleteProject(project._id)} projectid={this.props.match.params.id} id={project._id} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.profesion}></Deletecolaborator>))}
+      <div className="follow-project-pagetitle-bar">
+               <img className="svg" src={this.state.projectsadmin.image}></img>
+               <h2>{this.state.projectsadmin.nombre}</h2>
+                </div>
+        <div className="follow-project">
+        <div className="follow-project-colaborators-block">
+          <div className="follow-project-colaborators-blocks">
+            <ul className="follow-project-colaborators-project-description">
+              <li><h3>Descripción del Proyecto</h3></li>
+              <li><h4>Fase del proyecto</h4></li>
+              <li><p>{this.state.projectsadmin.fase}</p></li>
+              <li><h4>Colectivo al que atiende</h4></li>
+              <li><p>{this.state.projectsadmin.colectivo}</p></li>
+              <li><h4>Descripción del proyecto</h4></li>
+              <li><p>{this.state.projectsadmin.descripcion_del_proyecto}</p></li>
+              <li><h4>Lugar de ejecución</h4></li>
+              <li><p>{this.state.projectsadmin.lugar_de_ejecucion}</p></li>
+            </ul>
+          </div>
+          <div class="follow-project-colaborators-description">
+            <h2>Colaboradores Asociados al Projecto</h2>
+            <div class="follow-project-colaborators-single">
+              {this.state.projectscolaborator.map((project) => (
+                <Deletecolaborators className="Colaborators" delete={()=>this.deleteProject(project._id)} key="project._id" image={project.image} nombre={project.nombre} apellidos={project.apellidos} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.profesion}/>
+              ))}
+            </div>
+          </div>
+          <div class="follow-project-colaborators-description">
+            <h2>Empresas que siguen tu proyecto</h2>
+            <div class="follow-project-colaborators-single">
+              {this.state.projectscompany.map((project) => (
+                <Company className="Colaborators" delete={()=>this.deleteProject(project._id)} key="project._id" image={project.image} nombre={project.nombre} apellidos={project.apellidos} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.profesion}/>
+              ))}
+            </div>
+          </div>
+        </div>
         </div>
       </div>
+
+      // <div className="Projectedit">
+      // <div className="Projectedit-block">
+      //    <ul>
+      //    <li>Nombre del proyecto</li>
+      //      <li>{this.state.projectsadmin.nombre}</li>
+      //      <li>Fase de desarrollo</li>
+      //      <li>{this.state.projectsadmin.fase}</li>
+      //      <li>Colectivo al que atiende</li>
+      //      <li>{this.state.projectsadmin.colectivo}</li>
+      //      <li>Descripción del proyecto</li>
+      //      <li>{this.state.projectsadmin.descripcion_del_proyecto}</li>
+      //      <li>Profesionales Necesarios</li>
+      //      <li>{this.state.projectsadmin.profesionales_necesarios}</li>
+      //      <li>Lugar donde se desarrolla el proyecto</li>
+      //      <li>{this.state.projectsadmin.lugar_de_ejecucion}</li>
+      //    </ul>
+      //   </div>
+      //   <div className="Projectedit-block">
+      //     {this.state.projectscolaborator.map((project) => ( <Deletecolaborator delete={()=>this.deleteProject(project._id)} projectid={this.props.match.params.id} image={project.image} id={project._id} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.profesion}></Deletecolaborator>))}
+      //   </div>
+      //   <div className="Projectedit-block">
+      //     {this.state.projectscompany.map((project) => (   <Colaborator key="project._id" image={project.image} nombre={project.nombre} apellidos={project.apellidos} username={project.username} Email={project.email} Telefono={project.telefono} perfil_de_linkedin={project.perfil_de_linkedin} profesion={project.perfil_de_linkedin}/>))}
+      //   </div>
+      // </div>
     );
   }
 }

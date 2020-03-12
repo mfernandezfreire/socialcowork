@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: String,
-  password: String,
+  username: { type: String, required: true },
+  password: { type: String, required: true },
   rol: {
     type: String,
     enum: ["Profesional", "Empresa"]
   },
   nombre: String,
   apellidos: String,
-  email: String,
+  email: { type: String, required: true },
   telefono: Number,
   perfil_de_linkedin: String,
   persona_de_contacto: {

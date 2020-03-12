@@ -1,11 +1,11 @@
 // navbar/Navbar.js
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AuthService from "../auth/AuthService";
-import axios from "axios"
 import Allprojects from "../allprojects/Allprojects"
 import Axios from "axios";
 import Allprojectscompany from "../allprojectscompany/Allprojectscompany";
+import UserService from "../../services/UserService";
+import "../addcolaborator/Addcolaborator.scss"
 
 
 class Addcolaborators extends Component {
@@ -17,10 +17,8 @@ class Addcolaborators extends Component {
       allprojects: [],
       originalAllprojects: []
     };
-    this.service = new AuthService();
+    this.service = new UserService();
   }
-  
-  
 
   componentDidMount = () => {
     Axios.get(`${process.env.REACT_APP_API_URL}/user/allprojects`)
@@ -29,8 +27,6 @@ class Addcolaborators extends Component {
           id: "",
           allprojects: responseFromApi.data,
           originalAllprojects: responseFromApi.data
-          
-
         })
       })
   }
@@ -63,24 +59,44 @@ class Addcolaborators extends Component {
   render() {
     const filterAllprojects = this.state.allprojects.filter((projects) => projects.id_empresas.includes(this.props.userInSession._id) === false)
       return (
-        <nav class="project_profesional_home">
+        <div className="Addcolaborators-page">
+        <div className="Button-addcolaborators-page">
+          <button><Link to="/home" className="anchors">Atras</Link></button>
           <h1>Todos los proyectos</h1>
+        </div>
           <form>
-          <input
+          <input className="searchbar-addcolaborators"
                     type="search"
-                    placeholder="Type Search"
+                    placeholder="Busca por colectivo o profesión"
                     value={this.state.search}
                     name="search"
                     onChange={e => this.handleChange(e)}
                 />
-            {/* <input className="searchbutton" type="submit" value="Busca" /> */}
           </form>
-          <div>
+          <div className="Tiles-addcolaborators-page">
           {filterAllprojects.map((project) => (
                         <Allprojectscompany colaborador={this.props.userInSession._id} img={project.image} nombre={project.nombre} fase={project.fase} colectivo={project.colectivo} descripcion_del_proyecto={project.descripcion_del_proyecto} profesionales_necesarios={project.profesionales_necesarios} lugar_de_ejecución={project.lugar_de_ejecucion} _id={project._id}></Allprojectscompany>
                     ))}
           </div>
-        </nav>
+        </div>
+        // <nav class="project_profesional_home">
+        //   <h1>Todos los proyectos</h1>
+        //   <form>
+        //   <input
+        //             type="search"
+        //             placeholder="Type Search"
+        //             value={this.state.search}
+        //             name="search"
+        //             onChange={e => this.handleChange(e)}
+        //         />
+        //     {/* <input className="searchbutton" type="submit" value="Busca" /> */}
+        //   </form>
+        //   <div>
+        //   {filterAllprojects.map((project) => (
+        //                 <Allprojectscompany colaborador={this.props.userInSession._id} img={project.image} nombre={project.nombre} fase={project.fase} colectivo={project.colectivo} descripcion_del_proyecto={project.descripcion_del_proyecto} profesionales_necesarios={project.profesionales_necesarios} lugar_de_ejecución={project.lugar_de_ejecucion} _id={project._id}></Allprojectscompany>
+        //             ))}
+        //   </div>
+        // </nav>
         
       );
     }

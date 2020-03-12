@@ -32,8 +32,8 @@ class Choose extends Component {
         <Googlemaps className="Googlemaps"></Googlemaps>
           <h3>¿Cómo deseas CoWorkear?</h3>
         <div >
-          <button ><Link className="anchors" to="/Signup">Profesional</Link></button>
-          <button ><Link className="anchors" to="/Signupcompany">Empresa</Link></button>
+          <button ><Link className="anchors" to="/Signup">PROFESIONAL</Link></button>
+          <button ><Link className="anchors" to="/Signupcompany">EMPRESA</Link></button>
         </div>
         </div>
       );

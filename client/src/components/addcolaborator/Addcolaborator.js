@@ -1,12 +1,9 @@
-// navbar/Navbar.js
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AuthService from "../auth/AuthService";
-import axios from "axios"
 import Allprojects from "../allprojects/Allprojects"
-import Axios from "axios";
-
-
+import UserService from "../../services/UserService";
+import Button from "../button/Button";
+import "./Addcolaborator.scss"
 
 
 class Addcolaborators extends Component {
@@ -19,16 +16,15 @@ class Addcolaborators extends Component {
       originalAllprojects: [],
       search: ""
     };
-    this.service = new AuthService();
+    this.service = new UserService;
   }
-  
 
   componentDidMount = () => {
-    Axios.get(`${process.env.REACT_APP_API_URL}/user/allprojectsimple`)
-      .then(responseFromApi => {
+    this.service.showallprojectsimple()
+      .then(response => {
         this.setState({
-          allprojects: responseFromApi.data,
-          originalAllprojects: responseFromApi.data,
+          allprojects: response,
+          originalAllprojects: response,
         })
       })
   }
@@ -36,19 +32,12 @@ class Addcolaborators extends Component {
   search = value => {
     const originalAllprojects = [...this.state.originalAllprojects]
     let newList = []
-    console.log(value)
     newList = originalAllprojects.filter(item => {
-      // debugger
         const lc = item.profesionales_necesarios.toLowerCase();
         const lt = item.colectivo.toLowerCase();
         const filter = value.toLowerCase();
-        // const lc = item.colectivo
-        console.log(lc)
-        // const filter = value;
         return (lc.includes(filter) || lt.includes(filter))
       })
-    
-    console.log(newList) 
       this.setState({ allprojects: newList })
     }
 
@@ -61,19 +50,21 @@ class Addcolaborators extends Component {
   render() {
     const filterAllprojects = this.state.allprojects.filter((projects) => projects.id_colaboradores.includes(this.props.userInSession._id) === false && projects.id_administrador !== this.props.userInSession._id)
       return (
-        <div class="project_profesional_home">
+        <div className="Addcolaborators-page">
+        <div className="Button-addcolaborators-page">
+          <button><Link to="/home" className="anchors">Atras</Link></button>
           <h1>Todos los proyectos</h1>
+        </div>
           <form>
-          <input
+          <input className="searchbar-addcolaborators"
                     type="search"
-                    placeholder="Type Search"
+                    placeholder="Busca por colectivo o profesión"
                     value={this.state.search}
                     name="search"
                     onChange={e => this.handleChange(e)}
                 />
-            {/* <input className="searchbutton" type="submit" value="Busca" /> */}
           </form>
-          <div>
+          <div className="Tiles-addcolaborators-page">
           {filterAllprojects.map((project) => (
                         <Allprojects colaborador={this.props.userInSession._id} img={project.image} nombre={project.nombre} fase={project.fase} colectivo={project.colectivo} descripcion_del_proyecto={project.descripcion_del_proyecto} profesionales_necesarios={project.profesionales_necesarios} lugar_de_ejecución={project.lugar_de_ejecucion} _id={project._id}></Allprojects>
                     ))}

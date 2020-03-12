@@ -1,0 +1,62 @@
+.Colaborators {
+    display: flex;
+    width: 25%;
+    background-color: #FFF6D4;
+    padding: 1em;
+    margin: 1em;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.Colaborators-image {
+    display: flex;
+    align-items: center;
+    
+}
+
+.Colaborators img {
+    width: 5vw;
+    height: 10vh;
+    border-radius: 5px;
+    margin-top: 0.6em;
+}
+
+
+.Colaborators h3 {
+    font-size: 1.25em;
+    margin: 0.5em 0;
+}
+
+.Colaborators h4 {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.Colaborators p {
+    margin: 0em 0em 0.5em 0em;
+    font-size: 0.9em;
+}
+
+.Colaborators ul {
+    margin: 0;
+}
+
+
+.Colaborators li{
+    font-size: 0.9em;
+    margin: 0;
+
+}
+
+.button-delete-colaborator {
+    background-color: rgb(230, 149, 117);
+	padding: 0.5em 1em;
+    border-radius: 5px;
+    margin-top: 1em;
+	// margin-right: 1em;
+	border: none;
+
+}
+
+

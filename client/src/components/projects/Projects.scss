@@ -1,17 +1,38 @@
 .Projectsadmin {
     width: 100%;
+    margin-top: 1em;
+    padding: 1em;
+    border: 1px solid rgb(112, 109, 109);
+    border-radius: 5px;
+    background-color: #fff6d4;
 }
 .Projectsadmin ul {
     text-align: left;
     list-style-type: none;
+    padding: 0 0 0 0.7em;
 }
 
 .Projectsadmin ul li {
     width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-.Projectsadmin h3, h4{
-    margin: 0.5em 0;
+.Oneprojectsadmin h3 {
+    font-size: 1em;
+    margin: 0;
+}
+
+.Oneprojectsadmin h4{
+    font-size: 0.9em;
+    margin-top: 0.3em;
+    margin-bottom: 0;
+}
+
+
+.Oneprojectsadmin p{
+    font-size: 0.75em;
+    margin: 0;
 }
 
 .Oneprojectsadmin {
@@ -20,24 +41,43 @@
 }
 
 .Oneprojectsadmin img {
-    margin-top: 1em;
-    width: 50%;
-    height: 50%;
+    margin-top: 0.9em;
+    width: 25%;
+    height: 20%;
     border-radius: 5%;
+    object-fit: cover;
+
 }
 
 
 .Oneprojectsadmin li button {
     background-color: #FFAA15;
 	padding: 0.5em 1em;
-    border-radius: 10px;
-    margin-top: 3em;
-	margin-right: 1em;
+    border-radius: 5px;
+    margin-top: 1em;
+ 
+	// margin-right: 1em;
 	border: none;
 }
 
 .anchors {
-	font-size: 1.5em;	
+	font-size: 1em;	
 	color: #2D3142;
 	text-decoration: none;	
+}
+
+.button-colaborator-flex {
+    display: flex;
+    align-items: center;
+}
+
+.button-delete {
+    margin-left: 2em;
+    background-color: rgb(230, 149, 117);
+	padding: 0.5em 1em;
+    border-radius: 5px;
+    margin-top: 1em;
+	// margin-right: 1em;
+	border: none;
+
 }

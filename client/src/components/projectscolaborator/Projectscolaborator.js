@@ -36,15 +36,15 @@ class Projectscolaborator extends Component {
           <ul>
           <li><h3>{this.props.nombre}</h3></li>
           <li><h4>Fase del proyecto</h4></li>
-          <li>{this.props.fase}</li>
+          <li><p>{this.props.fase}</p></li>
           <li><h4>Colectivo al que atiende</h4></li>
-          <li>{this.props.colectivo}</li>
+          <li><p>{this.props.colectivo}</p></li>
           <li><h4>Ubicación del proyecto</h4></li>
-          <li>{this.props.lugar_de_ejecucion}</li>
-          <li><button><Link className="anchors" to={"/projectcolaborator/" + this.props._id}>Ver</Link></button></li>
-          <form onSubmit={e => this.handleFormSubmit(e)}>
-            <input className="button" type="submit" value="Elimina" />
-          </form>
+          <li><p>{this.props.lugar_de_ejecucion}</p></li>
+          <li className="button-colaborator-flex"><button><Link className="anchors" to={"/projectcolaborator/" + this.props._id}>SIGUE TU PROYECTO</Link></button><form onSubmit={e => this.handleFormSubmit(e)}>
+            <input className="button-delete" type="submit" value="ELIMINA" />
+          </form></li>
+         
           </ul>
         </div>
       </div>

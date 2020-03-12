@@ -1,23 +1,13 @@
-.Allprojects {
-    display: flex;
-    flex-direction: column;
-    border: 1pixel solid black
+.Allprojects-colaborators {
+    width: 100%;
 }
-
-.Allprojects .button {
-    background-color: #FFAA15;
-    padding: 0,7em;
-	border-radius: 10px;
-	margin-top: 2em;
-	border: 1pixel solid black;
-}
-
 
 .Allprojects-characteristics {
     display: flex;
+    justify-content: center;
     border: 1pixel solid black;
-    width: 80%;
-    margin: 2em;
+    width: 100%;
+    padding: 0;
 }
 
 .Allprojects-characteristics h3 {
@@ -26,12 +16,20 @@
 
 .Allprojects-charateristics-img {
     display: flex;
+    width: 60%;
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid rgb(112, 109, 109);
+    border-radius: 5px;
+    background-color: #fff6d4;
 }
 
-.Allprojects-charateristics-img img {
-    width: 30%;
-    height: auto;
-    border-radius: 8%;
+.addcolaborator-img {
+    margin-top: 0.9em;
+    width: 20%;
+    height: 40%;
+    border-radius: 5%;
+    object-fit: cover;
 }
 
 .Allprojects-characteristics ul li {
@@ -41,5 +39,35 @@
     list-style-type: none;
     margin: 0;
     text-align: justify;
+}
+
+.Allprojects-characteristics h2 {
+    font-size: 1em;
+    margin: 0;
+}
+
+.Allprojects-characteristics h3{
+    font-size: 0.9em;
+    margin-top: 0.3em;
+    margin-bottom: 0;
+}
+
+.Allprojects-characteristics p{
+    font-size: 0.75em;
+    margin: 0;
+}
+
+
+.button-follow {
+    background-color: #FFAA15;
+	padding: 0.5em 2em;
+    border-radius: 5px;
+    margin-top: 1em;
+	// margin-right: 1em;
+	border: none;
+}
+
+.alert {
+    color: green;
 }
 

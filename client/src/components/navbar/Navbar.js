@@ -1,9 +1,9 @@
 // navbar/Navbar.js
-
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../auth/AuthService";
 import "./Navbar.scss";
+
 
 class Navbar extends Component {
   constructor(props) {
@@ -23,33 +23,34 @@ class Navbar extends Component {
 
   render() {
     if (this.props.userInSession) {
-      return (
+      return (        
         <nav className="nav-style">
           <ul>
             <li>
-              <Link to="/home"><img src="https://res.cloudinary.com/dagreomkt/image/upload/v1583685226/SocialCoWorker/Nuevo_Logotipo_de_Marca_aothgs.png"></img></Link>
+              <Link to="/home"><img class="logo" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583685226/SocialCoWorker/Nuevo_Logotipo_de_Marca_aothgs.png"></img></Link>
             </li>
           </ul>
           <ul>
-            <li><img src={this.props.userInSession.image}></img></li>
-            <li><button><Link to="/profile" className="anchors">Editar perfil</Link></button></li>
+            <li><img class="profile-photo" src={this.props.userInSession.image}></img></li>
+            <li><button><Link to="/profile" className="anchors">PERFIL</Link></button></li>
             <li>
-              <button><Link className="anchors" onClick={this.handleLogout}>Logout</Link></button>
+              <button><Link className="anchors" onClick={this.handleLogout}>LOGOUT</Link></button>
             </li>
           </ul>
         </nav>
+
       );
     } else {
       return (
           <nav className="nav-style">
             <ul>
               <li>
-              <Link to="/Choose"><img src="https://res.cloudinary.com/dagreomkt/image/upload/v1583685226/SocialCoWorker/Nuevo_Logotipo_de_Marca_aothgs.png" alt="logotipo"></img></Link>
+              <Link to="/Choose"><img class="logo" src="https://res.cloudinary.com/dagreomkt/image/upload/v1583685226/SocialCoWorker/Nuevo_Logotipo_de_Marca_aothgs.png" alt="logotipo"></img></Link>
               </li>
             </ul>
             <ul>
               <li>
-                <button><Link to="/Login" className="anchors">Login</Link></button>
+                <button><Link to="/Login" className="anchors">LOGIN</Link></button>
               </li>
             </ul>
           </nav>

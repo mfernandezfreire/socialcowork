@@ -1,10 +1,12 @@
 .Createproject {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .form-flex {
     display: flex;
-    width: 100%;
+    justify-content: center;
+    width: 50%;
 }
 
 .form-create {
@@ -16,7 +18,8 @@
 }
 
 .form-create label {
-    font-size: 1.25em;
+    font-size: 1em;
+    font-weight: bold;
     margin-top: 1em;
     margin-bottom: 0.5em;
 }
@@ -25,25 +28,34 @@
     height: 43vh;
 }
 
-.form-create input {
+.form-create .create-input{
     border-radius: 10px;
     font-size: 1em;
-    width: 45vw;
+    width: 30vw;
     height: 5vh;
 }
 
 .form-create select {
     border-radius: 10px;
     font-size: 1em;
-    width: 45vw;
+    width: 30vw;
     height: 5vh;
 }
 
+.form-create textarea {
+    width: 20vw;
+    height: 5vh;
+    margin-left: 10em;
+    border-radius: 5px;
+}
 
-.Createproject .button {
+
+.button-form {
+    width: 15vw;
     background-color: #FFAA15;
-    padding: 0,7em;
-	border-radius: 10px;
-	margin-top: 2em;
+    padding: 1em;
+	border-radius: 5px;
+    margin-top: 2em;
+    margin-left: 10em;
 	border: none;
 }
