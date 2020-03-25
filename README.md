@@ -11,7 +11,7 @@ Puedes visitar Social Co Worker en el siguiente enlace:
 
 [Social Co Worker](https://socialcoworker.herokuapp.com/Choose "Social Co Worker")
 
-## # 👨🏽‍💻 Desarrollo de Social Co. Worker 
+## 👨🏽‍💻 Desarrollo de Social Co. Worker 
 
 SocialCoWorker es el tercer y último proyecto que efectuo como estudiante del bootcamp que  Ironhack imparte en Madrid.
 
